@@ -111,7 +111,7 @@
                             <i class="fas fa-circle fa-stack-2x text-success"></i>
                             <i class="fas fa-children fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">Pre-natal Counceling</h4>
+                        <h4 class="my-3">Prenatal Counceling</h4>
                         <p class="text-muted">Every 2nd Thursda of the Month  <br> (8:00-5:00 PM)</p>
                     </div>
                     <div class="col-md-3">
@@ -148,34 +148,93 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Appointment Booking</h2>
-                    <h3 class="section-subheading text-muted">Set Appointment for Check-up.</h3>
+                    <h3 class="section-subheading text-muted">Set Appointment for any services that we offer.</h3>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6 col-sm-6 mb-6">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="assets/img/portfolio/1.jpg" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Threads</div>
-                                <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                    <div class="col-md-6">
+                        <div class="well-block">
+                            <div class="well-title">
+                                <h2 style="color: green;">Fill in the information needed below and set an appointment.</h2>
+                                <p><em>(Please check email for the appointment schedule.)</em></p>
                             </div>
+                            <form>
+                                <!-- Form start -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label" for="name">Name</label>
+                                            <input id="name" name="name" type="text" placeholder="Name" class="form-control input-md">
+                                        </div>
+                                    </div>
+                                    <!-- Text input-->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label" for="email">Email</label>
+                                            <input id="email" name="email" type="text" placeholder="E-Mail" class="form-control input-md">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" ><br></div>
+                                    <!-- Select Basic -->
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label" for="appointmentfor">Appointment For</label>
+                                            <select id="appointmentfor" name="appointmentfor" class="form-control">
+                                                <option value="">----- Select Service ------</option>
+                                                <option value="Birthing">Birthing</option>
+                                                <option value="Consultation">Consultation</option>
+                                                <option value="Immunization">Prenatal/Immunization</option>
+                                                <option value="Circumcission">Circumcission/Minor OR</option>
+                                                <option value="Laboratory">Laboratory</option>
+                                                <option value="Dental">Dental Services</option>
+                                                <option value="Counceling">Pre-natal Counceling</option>
+                                                <option value="MedicalCert">Issuance of Medical Certificate</option>
+                                                <option value="FamilyPlanning">Family Planning</option>
+                                                <option value="Others">Others</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" ><br></div>
+                                    <!-- Button -->
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <button id="singlebutton" name="singlebutton" class="btn btn-lg btn-success">Make An Appointment</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- form end -->
                         </div>
                     </div>
-                    <div class="col-lg-6 col-sm-6 mb-6">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                    <div class="col-md-6">
+                        <div class="well-block">
+                            <div class="well-title">
+                                <h2>Why Appointment with Us</h2>
+                            </div>
+                            <div class="feature-block">
+                                <div class="feature feature-blurb-text">
+                                    <h4 class="feature-title">Experienced Staff</h4>
+                                    <div class="feature-content">
+                                        <ul>
+                                           <!-- <li>Patient and family education</li>
+                                            <li>Checking and monitoring vital signs</li>
+                                            <li>Emergency room care</li>
+                                            <li>Patient transport</li>-->
+                                            <li>Patient safety</li>
+                                            <li>Technology skills</li> 
+                                            <li>Excellent communication skills</li>
+                                            <li>Excellent time management skills</li>
+                                            <li>Excellent critical thinking and problem-solving skills</li>
+                                            <li>Excellent at maintaining patient confidentiality and upholding professional ethics</li>
+                                            <li>Excellent teamwork skills displayed through experience collaborating with other nurses and doctors to improve patient and family education programs</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/1.jpg" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Threads</div>
-                                <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                                <!-- <div class="feature feature-blurb-text">
+                                    <h4 class="feature-title">Low Price & Fees</h4>
+                                    <div class="feature-content">
+                                        <p>Praesent eu sollicitudin nunc. Cras malesuada vel nisi consequat pretium. Integer auctor elementum nulla suscipit in.</p>
+                                    </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -381,7 +440,7 @@
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; AHPIS 2022</div>
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; PRASIS-RHU 2022</div>
                     <div class="col-lg-4 my-3 my-lg-0">
                         <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
@@ -412,7 +471,7 @@
                                             </div>
                                             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                                               <form>
-                                                <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+                                                <!-- <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                                                   <p class="lead fw-normal mb-0 me-3">Sign in with</p>
                                                   <button type="button" class="btn btn-success btn-floating mx-1">
                                                     <i class="fab fa-facebook-f"></i>
@@ -429,7 +488,7 @@
                                       
                                                 <div class="divider d-flex align-items-center my-4">
                                                   <p class="text-center fw-bold mx-3 mb-0">Or</p>
-                                                </div>
+                                                </div> -->
                                       
                                                 <!-- Email input -->
                                                 <div class="form-outline mb-4">
@@ -470,7 +529,7 @@
                                         <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-success">
                                           <!-- Copyright -->
                                           <div class="text-white mb-3 mb-md-0">
-                                            Copyright © 2020. All rights reserved.
+                                            Copyright © 2022. All rights reserved.
                                           </div>
                                           <!-- Copyright -->
                                       
