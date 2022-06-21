@@ -17,7 +17,7 @@ if(isset($_POST["submit"])){
     createUser($conn, $usersLName, $usersFName, $usersMName, $usersEmail, $usersType, $usersUid, $usersPwd);
 }
 else{
-    header("location: ../adminCreateUserAccount.php");
+    header("location: ../../adminCreateUserAccount.php");
 }
 
 ?>

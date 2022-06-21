@@ -470,7 +470,7 @@
                                               <img src="assets/img/logos/PRASIS_Logo.png" class="img-fluid" alt="AHPIS Logo">
                                             </div>
                                             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                                                <form class="form-horizontal" action="includes/login.inc.php" method="POST" id="createRecordForm">
+                                              <form>
                                                 <!-- <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                                                   <p class="lead fw-normal mb-0 me-3">Sign in with</p>
                                                   <button type="button" class="btn btn-success btn-floating mx-1">
@@ -490,16 +490,16 @@
                                                   <p class="text-center fw-bold mx-3 mb-0">Or</p>
                                                 </div> -->
                                       
-                                                <!-- Username input -->
+                                                <!-- Email input -->
                                                 <div class="form-outline mb-4">
-                                                  <input type="text" name="usersUid" id="form3Example3" class="form-control form-control-lg"
+                                                  <input type="email" id="form3Example3" class="form-control form-control-lg"
                                                     placeholder="Enter username" />
                                                   <label class="form-label" for="form3Example3">Username</label>
                                                 </div>
                                       
                                                 <!-- Password input -->
                                                 <div class="form-outline mb-3">
-                                                  <input type="password" name="usersPwd" id="form3Example4" class="form-control form-control-lg"
+                                                  <input type="password" id="form3Example4" class="form-control form-control-lg"
                                                     placeholder="Enter password" />
                                                   <label class="form-label" for="form3Example4">Password</label>
                                                 </div>
@@ -516,8 +516,10 @@
                                                 </div>
                                       
                                                 <div class="text-center text-lg-start mt-4 pt-2">
-                                                  <button type="loginSubmit" name="loginSubmit" id="loginSubmit" class="btn btn-success btn-lg"
+                                                  <button type="button" class="btn btn-success btn-lg"
                                                     style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+                                                  <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
+                                                      class="link-danger">Register</a></p>
                                                 </div>
                                       
                                               </form>
