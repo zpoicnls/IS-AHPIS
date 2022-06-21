@@ -26,7 +26,7 @@
  
                 <hr class="sidebar-divider"> 
 
-                <a class="nav-link" href="adminPage.php">
+                <a class="nav-link" href="adminPagePatientRecord.php">
                     <i class="fas  "></i>
                     <span>Add Patient</span></a>
  

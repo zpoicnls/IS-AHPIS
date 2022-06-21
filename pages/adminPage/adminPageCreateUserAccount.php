@@ -54,7 +54,7 @@
 
                         <section class="page-section" id="patient_admission">
                            
-                              <form class="form-horizontal" action="../../php_action/adminPage/adminCreateUserAccount.php" method="POST" id="createRecordForm">
+                              <form class="form-horizontal" action="../../includes/createUsersAccount.inc.php" method="POST" id="createRecordForm">
                     <!-- 2 column grid layout with text inputs for the first and last names -->
                    
                      <div class="col">
