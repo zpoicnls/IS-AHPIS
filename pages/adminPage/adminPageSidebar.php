@@ -5,7 +5,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text">Ibutang logo</div>
+                <div class="sidebar-brand-text" href="adminPageDashboard.php">PRASIS LOGO</div>
             </a>
 
             <!-- Divider -->
@@ -16,7 +16,7 @@
 
                 <a class="nav-link" href="adminPageDashboard.php">
                     <i class="fas  "></i>
-                    <span>Staff landing</span></a>
+                    <span>Dashboard</span></a>
                 
                 <hr class="sidebar-divider">
 
@@ -26,7 +26,7 @@
  
                 <hr class="sidebar-divider"> 
 
-                <a class="nav-link" href="adminPage.php">
+                <a class="nav-link" href="#">
                     <i class="fas  "></i>
                     <span>Add Patient</span></a>
  
