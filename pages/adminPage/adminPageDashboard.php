@@ -6,7 +6,7 @@ include '../../includes/dbh.inc.php';
 
 <head>
 
-   <?php include '../../includes/adminPage/adminPageHeader.php' ?>
+   <?php include 'adminPageHeader.php' ?>
 
 </head>
 
@@ -18,7 +18,7 @@ include '../../includes/dbh.inc.php';
         <!-- Sidebar -->
               <?php
 
-                include '../../includes/adminPage/adminPageSidebar.php';
+                include 'adminPageSidebar.php';
                 
               ?>
         <!-- End of Sidebar -->
@@ -34,7 +34,7 @@ include '../../includes/dbh.inc.php';
                     <!-- Topbar Navbar -->
                     <?php
 
-                     include '../../includes/adminPage/adminPageTopbar.php';
+                     include 'adminPageTopbar.php';
                 
                     ?>
                 <!-- End of Topbar -->
