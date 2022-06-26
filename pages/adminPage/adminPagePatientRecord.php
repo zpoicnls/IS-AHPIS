@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include '../../includes/adminPage/adminPageHeader.php';
+include 'adminPageHeader.php';
 ?>
 
 
@@ -16,7 +16,7 @@ include '../../includes/adminPage/adminPageHeader.php';
 
         <!-- Sidebar -->
         <?php
-            include '../../includes/adminPage/adminPageSidebar.php';
+            include 'adminPageSidebar.php';
         ?>
         <!-- End of Sidebar -->
 
@@ -27,7 +27,7 @@ include '../../includes/adminPage/adminPageHeader.php';
             <div id="content">
 
                 <!-- Topbar -->
-                <?php include '../../includes/adminPage/adminPageTopbar.php';?>
+                <?php include 'adminPageTopbar.php';?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -67,7 +67,7 @@ include '../../includes/adminPage/adminPageHeader.php';
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <?php include '../../includes/adminPage/adminPageFooter.php'; ?>
+            <?php include 'adminPageFooter.php'; ?>
             <!-- End of Footer -->
 
         </div>

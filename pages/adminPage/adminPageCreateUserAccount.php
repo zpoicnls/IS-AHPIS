@@ -5,7 +5,7 @@
 <html lang="en">
 
 <head>
-   <?php include '../../includes/adminPage/adminPageHeader.php' ?>
+   <?php include 'adminPageHeader.php' ?>
 </head>
 
 <body id="page-top">
@@ -16,7 +16,7 @@
         <!-- Sidebar -->
                 <?php
 
-                    include '../../includes/adminPage/adminPageSidebar.php';
+                    include 'adminPageSidebar.php';
                 ?>
         <!-- End of Sidebar -->
 
@@ -32,7 +32,7 @@
                     <!-- Topbar Navbar -->
                     <?php
 
-                     include '../../includes/adminPage/adminPageTopbar.php';
+                     include 'adminPageTopbar.php';
                 
                     ?>
                 <!-- End of Topbar -->
@@ -43,6 +43,18 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Create User Account</h1>
+                        <?php
+                            if (isset($_GET["error"])) {
+                                if ($_GET["error"] == "usernametaken") {
+                                    echo "<h1> User ID Aready Exists!s </h1>";
+                                }
+                            }
+                            if (isset($_GET["error"])) {
+                                if ($_GET["error"] == "none") {
+                                    echo "<h1> Create Account Successfull! </h1>";
+                                }
+                            }
+                        ?>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
@@ -54,7 +66,7 @@
 
                         <section class="page-section" id="patient_admission">
                            
-                              <form class="form-horizontal" action="../../php_action/adminPage/adminCreateUserAccount.php" method="POST" id="createRecordForm">
+                            <form class="form-horizontal" action="../../includes/createUsersAccount.inc.php" method="POST" id="createRecordForm">
                     <!-- 2 column grid layout with text inputs for the first and last names -->
                    
                      <div class="col">
@@ -133,7 +145,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <?php include '../../includes/adminPage/adminPageFooter.php'; ?>
+            <?php include 'adminPageFooter.php'; ?>
             <!-- End of Footer -->
 
         </div>
@@ -168,21 +180,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="../../vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="../../js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="../../vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="../../js/demo/chart-area-demo.js"></script>
+    <script src="../../js/demo/chart-pie-demo.js"></script>
 
 </body>
 
