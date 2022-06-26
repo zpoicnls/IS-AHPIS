@@ -1,9 +1,19 @@
 <?php
 include 'db_connect.php';
+
+$patientID = $_GET['var_patient'];
+$sql = "SELECT  d.Diagnosis,d.year FROM diagnosis_tbl d join patient_tbl p on p.Patient_ID=d.Patient_ID where p.Patient_ID = '$patientID' ";
+$query = $conn->query($sql); 
+
+$Patientquery = "select CONCAT(fname,_utf8 ' ', middle_name, _utf8 ' ', lname) AS name,bday from patient_tbl where Patient_ID = '$patientID'";
+$queryP = $conn->query($Patientquery);
+$row = $queryP->fetch_assoc();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
+<link href="css/custom.min.css" rel="stylesheet" type="text/css">
 <?php
 include 'header.php';
 ?>
@@ -34,32 +44,60 @@ include 'header.php';
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Patient Details</h1>
-                    
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered  table-responsive content  table-hover " id="managetable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr class="table-info table-success"><b>
-                                            <th>Name</th>
-                                            <th>Occupation</th>
-                                            <th>Address</th>
-                                            <th>E-mail</th>
-                                            <th>Contact Number</th>
-                                            <th>Gender</th>
-                                            <th>Age</th>
-                                            <th>Diagnosis</th>
-                                            <th>Action</th>
-                                        </b></tr>
-                                    </thead>
-                                   
-                                    
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                    <h1 class="h3 mb-2 text-gray-800">Diagnosis Details</h1>
+               <div class="title_right ">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group ">
+                    <input type="text" name="valueToSearch"  class="form-control " placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-info" type="submit" name="search">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+                    <!-- DataTables -->
+                     <div class="container my-4">
+
+    <p class="font-weight-bold">Patient Name: <?php echo $row['name'];?></p>
+    <p class="font-weight-bold">Date of Birth: <?php echo $row['bday'];?></p>
+    <!--Section: Live preview-->
+    <section>
+
+      <div class="table-responsive text-nowrap">
+        <!--Table-->
+        <table class="table table-striped" >
+
+          <!--Table head-->
+          <thead>
+            <tr class ="table-info table-success">
+              <th>Date</th>
+              <th>Diagnosis</th>
+              
+            </tr>
+          </thead>
+          <!--Table head-->
+
+          <!--Table body-->
+          <tbody>
+            
+            <tr>
+              <?php while ($row = $query->fetch_assoc()){;?>
+                <td><?php echo $row['year'];?></td>
+                <td><?php echo $row['Diagnosis'];?></td>
+              <?php };  ?>
+            </tr>
+          </tbody>
+          <!--Table body-->
+
+
+        </table>
+        <!--Table-->
+      </div>
+    </section>
+    <!--Section: Live preview-->
+
+
+  </div>
 
                 </div>
                 <!-- /.container-fluid -->
@@ -250,7 +288,7 @@ include 'header.php';
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
     <!-- patient view Javascript -->
-    <script type="text/javascript" src="js/patient_JS/patient_view.js"></script>
+   
 </body>
 
 </html>

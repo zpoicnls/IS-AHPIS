@@ -31,7 +31,7 @@
                 <a class="nav-link" href="patient_mngmnt.php">
                     <i class="fas  "></i>
                     <span>Patient Management</span></a> 
-            </li>
-
-
+           
+             </li>
+            
         </ul>

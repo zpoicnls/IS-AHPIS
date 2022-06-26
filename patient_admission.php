@@ -135,10 +135,17 @@ include 'db_connect.php';
                     <!-- Diagnosis  input -->
                 <div class="col">
                     <div class="form-outline">
-                        <textarea class="form-control" name="diagnosis" id="form6Example7" rows="4"></textarea>
+                        <textarea class="form-control" name="diagnosis" id="diagnosis" rows="4"></textarea>
                         <label class="form-label" for="form6Example7">Diagnosis</label>
                      </div>
               </div>
+
+              <div class="col">
+                    <div class="form-outline">
+                        <input type="date" id="year" name="year" class="form-control" required="required" />
+                        <label class="form-label" for="form6Example8">Date of Check-up</label>
+                    </div>
+                   </div>
 
                  <!-- Submit button -->
                  <div class="modal-footer">
