@@ -4,7 +4,7 @@ function usersUidExists ($conn, $usersUid) {
     $sql = "SELECT * FROM tbl_users WHERE usersUid = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../pages/adminPage/adminPageCreateUserAccount.php?error=stmtfailed");
+        header("location: ../pages/adminPage/adminPageUserAccount.php?error=stmtfailed");
     }
 
     mysqli_stmt_bind_param($stmt, "s", $usersUid);
@@ -27,14 +27,14 @@ function createUsersAccount ($conn, $usersLName, $usersFName, $usersMName, $user
     $sql = "INSERT INTO tbl_users (usersLName, usersFName, usersMName, usersEmail, usersType, usersUid, usersPwd) VALUES (?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)){
-        header("location: ../pages/adminPage/adminPageCreateUserAccount.php?error=stmtfailed");
+        header("location: ../pages/adminPage/adminPageUserAccount.php?error=stmtfailed");
         exit();
     }
 
     mysqli_stmt_bind_param($stmt, "sssssss", $usersLName, $usersFName, $usersMName, $usersEmail, $usersType, $usersUid, $usersPwd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../pages/adminPage/adminPageCreateUserAccount.php?error=none");
+    header("location: ../pages/adminPage/adminPageUserAccount.php?status=success");
     exit();
 }
 

@@ -18,11 +18,11 @@
                     <i class="fas  "></i>
                     <span>Dashboard</span></a>
                 
-                <hr class="sidebar-divider">
-
-                <a class="nav-link" href="adminPageCreateUserAccount.php">
+                <hr class="sidebar-divider"> 
+                              
+                <a class="nav-link" href="adminPageUserAccount.php">
                     <i class="fas  "></i>
-                    <span>Create User Account</span></a>
+                    <span>User Account</span></a>
  
                 <hr class="sidebar-divider"> 
 

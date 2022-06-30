@@ -15,14 +15,14 @@ if(isset($_POST["submit"])){
     require_once 'functions.inc.php';
 
     if (usersUidExists ($conn, $usersUid) !== false) {
-        header("location: ../pages/adminPage/adminPageCreateUserAccount.php?error=usernametaken");
+        header("location: ../pages/adminPage/adminPageUserAccount.php?error=usernametaken");
         exit();      
     }
-
     createUsersAccount ($conn, $usersLName, $usersFName, $usersMName, $usersEmail, $usersType, $usersUid, $usersPwd);
+
 }
 else{
-    header("location: ../pages/adminPage/adminPageCreateUserAccount.php");
+    header("location: ../pages/adminPage/adminPageUserAccount.php");
     exit();
 }
 
