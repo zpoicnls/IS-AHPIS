@@ -46,9 +46,32 @@ function loginUser($conn, $usersUid, $usersPwd) {
     if ($result) {
         if ($result && mysqli_num_rows($result) > 0) {
             $user_data = mysqli_fetch_assoc($result);
-            if ($user_data['usersPwd'] === $usersPwd) {
+            if ($user_data['usersPwd'] === $usersPwd && $user_data['usersType'] === 'Admin') {
+                session_start();
                 $_SESSION['usersUid'] = $user_data['usersUid'];
+                $_SESSION['usersFName'] = $user_data['usersFName'];
                 header("location: ../pages/adminPage/adminPageDashboard.php");
+                die;
+            }
+            else if ($user_data['usersPwd'] === $usersPwd && $user_data['usersType'] === 'Physician') {
+                session_start();
+                $_SESSION['usersUid'] = $user_data['usersUid'];
+                $_SESSION['usersFName'] = $user_data['usersFName'];
+                header("location: ");
+                die;
+            }
+            else if ($user_data['usersPwd'] === $usersPwd && $user_data['usersType'] === 'Nurse') {
+                session_start();
+                $_SESSION['usersUid'] = $user_data['usersUid'];
+                $_SESSION['usersFName'] = $user_data['usersFName'];
+                header("location: ");
+                die;
+            }
+            else if ($user_data['usersPwd'] === $usersPwd && $user_data['usersType'] === 'Office Staff') {
+                session_start();
+                $_SESSION['usersUid'] = $user_data['usersUid'];
+                $_SESSION['usersFName'] = $user_data['usersFName'];
+                header("location: ../pages/staffPage/patient_mngmnt.php");
                 die;
             }
         }
