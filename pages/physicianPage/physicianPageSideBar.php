@@ -14,25 +14,13 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
 
-                <a class="nav-link" href="adminPageDashboard.php">
+                <a class="nav-link" href="physicianPageDashboard.php">
                     <i class="fas  "></i>
                     <span>Dashboard</span></a>
                 
-                <hr class="sidebar-divider"> 
-                              
-                <a class="nav-link" href="adminPageUserAccount.php">
-                    <i class="fas  "></i>
-                    <span>User Account</span></a>
- 
-                <hr class="sidebar-divider"> 
+                <hr class="sidebar-divider">
 
-                <a class="nav-link" href="#">
-                    <i class="fas  "></i>
-                    <span>Add Patient</span></a>
- 
-                <hr class="sidebar-divider"> 
-
-                <a class="nav-link" href="adminPagePatienViewRecord.php">
+                <a class="nav-link" href="physicianPagePatientRecords.php">
                     <i class="fas  "></i>
                     <span>Patient Records
                     </span></a>
