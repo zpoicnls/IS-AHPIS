@@ -32,7 +32,7 @@
  
                 <hr class="sidebar-divider"> 
 
-                <a class="nav-link" href="adminPagePatientRecord.php">
+                <a class="nav-link" href="adminPagePatienViewRecord.php">
                     <i class="fas  "></i>
                     <span>Patient Records
                     </span></a>
