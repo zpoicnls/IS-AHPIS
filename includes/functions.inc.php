@@ -57,14 +57,14 @@ function loginUser($conn, $usersUid, $usersPwd) {
                 session_start();
                 $_SESSION['usersUid'] = $user_data['usersUid'];
                 $_SESSION['usersFName'] = $user_data['usersFName'];
-                header("location: ");
+                header("location: ../pages/physicianPage/physicianPageDashboard.php");
                 die;
             }
             else if ($user_data['usersPwd'] === $usersPwd && $user_data['usersType'] === 'Nurse') {
                 session_start();
                 $_SESSION['usersUid'] = $user_data['usersUid'];
                 $_SESSION['usersFName'] = $user_data['usersFName'];
-                header("location: ");
+                header("location: ../pages/staffPage/patient_mngmnt.php");
                 die;
             }
             else if ($user_data['usersPwd'] === $usersPwd && $user_data['usersType'] === 'Office Staff') {
