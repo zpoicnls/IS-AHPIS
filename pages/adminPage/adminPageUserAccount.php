@@ -46,7 +46,7 @@
 
                  <!-- Submit button -->
                 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createuserModal">
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#createuserModal">
   Create Account
 </button>
 <br>

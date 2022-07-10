@@ -1,13 +1,13 @@
 <?php 
 
-require_once 'db_connect.php';
+require_once '../../../includes/dbh.inc.php';
 
 //if form is submitted
 if ($_POST) {
       
   
   
-   $fname = $_POST['fname']; 
+    $fname = $_POST['fname']; 
     $lname = $_POST['lname'];
     $mname = $_POST['mname']; 
     $occupation = $_POST['occupation'];   

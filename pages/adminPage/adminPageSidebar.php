@@ -22,19 +22,13 @@
                               
                 <a class="nav-link" href="adminPageUserAccount.php">
                     <i class="fas  "></i>
-                    <span>User Account</span></a>
- 
-                <hr class="sidebar-divider"> 
-
-                <a class="nav-link" href="#">
-                    <i class="fas  "></i>
-                    <span>Add Patient</span></a>
+                    <span>User Account Management</span></a>
  
                 <hr class="sidebar-divider"> 
 
                 <a class="nav-link" href="adminPagePatienViewRecord.php">
                     <i class="fas  "></i>
-                    <span>Patient Records
+                    <span>Patient Management
                     </span></a>
 
             </li>

@@ -15,10 +15,10 @@ while ($row = $query->fetch_assoc()) {
  $diagnosis = '
  <a type="button" class="btn btn-primary" title="View" data-toggle="modal" data-target="#viewDiagnosisModal" onclick="view_diagnosis( '.$row['Patient_ID'].')">View</a>';
  $action = '
-  <div class="btn-group" role="group" >
-  <a type="button" class="btn btn-secondary btn-info" title="Edit" ><i class="fa fa-edit" aria-hidden="true" ></i></a>
-  <a type="button" class="btn btn-secondary btn-danger" title="Remove" ><i class="fa fa-trash" aria-hidden="true" ></i></a>
-    ';
+ <div class="btn-group" role="group" >
+ <a type="button" class="btn btn-secondary btn-info" title="Edit" data-toggle="modal" data-target="#editRecordModal" onclick="update_patient( '.$row['Patient_ID'].')"><i class="fa fa-edit" aria-hidden="true" ></i></a>
+ <a type="button" class="btn btn-secondary btn-danger" title="Remove" data-toggle="modal" data-target="#removeAccountModal" onClick="remove_patient( '.$row['Patient_ID'].')"><i class="fa fa-trash" aria-hidden="true" ></i></a>
+   ';
  $output['data'][] = array(
                 $row['name'], 
                 $row['occupation'],
