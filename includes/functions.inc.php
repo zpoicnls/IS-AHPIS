@@ -1,6 +1,7 @@
 <?php
 
-function usersUidExists ($conn, $usersUid) {
+function usersUidExists($conn, $usersUid)
+{
     $sql = "SELECT * FROM tbl_users WHERE usersUid = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -14,8 +15,7 @@ function usersUidExists ($conn, $usersUid) {
 
     if ($row = mysqli_fetch_assoc($resutlData)) {
         return $row;
-    }
-    else {
+    } else {
         $result = false;
         return $result;
     }
@@ -23,10 +23,11 @@ function usersUidExists ($conn, $usersUid) {
     mysqli_stmt_close($stmt);
 }
 
-function createUsersAccount ($conn, $usersLName, $usersFName, $usersMName, $usersEmail, $usersType, $usersUid, $usersPwd) {
+function createUsersAccount($conn, $usersLName, $usersFName, $usersMName, $usersEmail, $usersType, $usersUid, $usersPwd)
+{
     $sql = "INSERT INTO tbl_users (usersLName, usersFName, usersMName, usersEmail, usersType, usersUid, usersPwd) VALUES (?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)){
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../pages/adminPage/adminPageUserAccount.php?error=stmtfailed");
         exit();
     }
@@ -38,8 +39,8 @@ function createUsersAccount ($conn, $usersLName, $usersFName, $usersMName, $user
     exit();
 }
 
-function loginUser($conn, $usersUid, $usersPwd) {
-
+function loginUser($conn, $usersUid, $usersPwd)
+{
     $sql = "SELECT * FROM tbl_users WHERE usersUid='$usersUid' limit 1";
     $result = mysqli_query($conn, $sql);
 
@@ -50,24 +51,26 @@ function loginUser($conn, $usersUid, $usersPwd) {
                 session_start();
                 $_SESSION['usersUid'] = $user_data['usersUid'];
                 $_SESSION['usersFName'] = $user_data['usersFName'];
+                $_SESSION['usersMName'] = $user_data['usersMName'];
+                $_SESSION['usersLName'] = $user_data['usersLName'];
+                $_SESSION['usersEmail'] = $user_data['usersEmail'];
+                $_SESSION['usersType'] = $user_data['usersType'];
+                $_SESSION['usersPwd'] = $user_data['usersPwd'];
                 header("location: ../pages/adminPage/adminPageDashboard.php");
                 die;
-            }
-            else if ($user_data['usersPwd'] === $usersPwd && $user_data['usersType'] === 'Physician') {
+            } elseif ($user_data['usersPwd'] === $usersPwd && $user_data['usersType'] === 'Physician') {
                 session_start();
                 $_SESSION['usersUid'] = $user_data['usersUid'];
                 $_SESSION['usersFName'] = $user_data['usersFName'];
                 header("location: ../pages/physicianPage/physicianPageDashboard.php");
                 die;
-            }
-            else if ($user_data['usersPwd'] === $usersPwd && $user_data['usersType'] === 'Nurse') {
+            } elseif ($user_data['usersPwd'] === $usersPwd && $user_data['usersType'] === 'Nurse') {
                 session_start();
                 $_SESSION['usersUid'] = $user_data['usersUid'];
                 $_SESSION['usersFName'] = $user_data['usersFName'];
                 header("location: ../pages/staffPage/patient_mngmnt.php");
                 die;
-            }
-            else if ($user_data['usersPwd'] === $usersPwd && $user_data['usersType'] === 'Office Staff') {
+            } elseif ($user_data['usersPwd'] === $usersPwd && $user_data['usersType'] === 'Office Staff') {
                 session_start();
                 $_SESSION['usersUid'] = $user_data['usersUid'];
                 $_SESSION['usersFName'] = $user_data['usersFName'];
@@ -99,9 +102,4 @@ function loginUser($conn, $usersUid, $usersPwd) {
    //     header("location: ../pages/adminPage/adminPageDashboard.php?");
    //     exit();
    // }
-
-
-     
 }
-
-?>
