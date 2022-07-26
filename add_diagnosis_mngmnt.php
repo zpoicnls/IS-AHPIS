@@ -3,7 +3,6 @@ include 'db_connect.php';
 
 $patientID = $_GET['var_patient'];
 
-
 $Patientquery = "select CONCAT(fname,_utf8 ' ', middle_name, _utf8 ' ', lname) AS name,bday,Patient_ID from patient_tbl where Patient_ID = '$patientID'";
 $queryP = $conn->query($Patientquery);
 $row = $queryP->fetch_assoc();
@@ -11,7 +10,6 @@ $row = $queryP->fetch_assoc();
 $diagquery = "SELECT  d.Diagnosis,d.year,d.Diagnosis_ID,pd.Patient_ID FROM diagnosis_tbl d join tbl_patient_diagnosis pd on pd.Diagnosis_ID=d.Diagnosis_ID where pd.Patient_ID = '$patientID'";
 $querydiag = $conn->query($diagquery);
 $row1 = $querydiag->fetch_assoc();
-
 //for search and paging
 
 if($_POST)
@@ -105,6 +103,7 @@ if($currentpage > $lastpage){
  
 
 
+
 ?>
 
 <!DOCTYPE html>
@@ -146,7 +145,9 @@ include 'header.php';
                     <h1 class="h3 mb-2 text-gray-800">Patient Details</h1>
      <p class="font-weight-bold">Patient Name: <?php echo $row['name'];?></p>
     <p class="font-weight-bold">Date of Birth: <?php echo $row['bday'];?></p>
-    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+    <!--Section: Live preview-->                   
+   <!-- DataTales Example -->
+     <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
       <form action="diagnosis_mngmnt.php?var_patient= <?php echo $patientID; ?>" method="POST">
                      <div class="input-group ">
                     <input type="text" name="valueToSearch"  class="form-control " placeholder="Search for...">
@@ -243,10 +244,8 @@ if ($currentpage != $lastpage) {
 ?>
 
 </div>               
+        
                 </div>
-
-
-
                 <!-- /.container-fluid -->
       <div class="col-sm-6">
         <form action="php_action/add_diagnosis.php" method="POST" id="createRecordForm">
@@ -261,7 +260,7 @@ if ($currentpage != $lastpage) {
               </label>
               <input type="text"
                      class="form-control"
-                     id="diagnosis" name="diagnosis" />
+                     id="diagnosis" name="diagnosis" autofocus/>
             </div>
             <div class="form-group">
               <label for="year">

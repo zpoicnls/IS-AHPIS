@@ -6,7 +6,7 @@ include 'db_connect.php';
 
 <head>
 
-   <?php include '../header.php' ?>
+   <?php include 'header.php' ?>
 
 </head>
 
@@ -18,7 +18,7 @@ include 'db_connect.php';
         <!-- Sidebar -->
               <?php
 
-                include '../sidebar.php';
+                include 'sidebar.php';
                 
               ?>
         <!-- End of Sidebar -->
@@ -34,7 +34,7 @@ include 'db_connect.php';
                     <!-- Topbar Navbar -->
                     <?php
 
-                     include '../topbar.php';
+                     include 'topbar.php';
                 
                     ?>
                 <!-- End of Topbar -->
