@@ -7,7 +7,7 @@ if ($_POST) {
       
   
   
-   $fname = $_POST['fname']; 
+    $fname = $_POST['fname']; 
     $lname = $_POST['lname'];
     $mname = $_POST['mname']; 
     $occupation = $_POST['occupation'];   
@@ -38,18 +38,26 @@ if ($_POST) {
 
             $sql = "INSERT INTO patient_tbl (fname, lname, middle_name, occupation, address, email, phone, bday, age, gender) VALUES ('$fname', '$lname', '$mname', '$occupation', '$address', '$email', '$phone', '$bday', '$age', '$gender')";
                 $insert_query = $conn->query($sql); 
-            
+                
+
 
        if($insert_query === TRUE) { 
+            $patient_id = mysqli_insert_id($conn);
+             
 
-             $patient_id = mysqli_insert_id($conn);
-
-
-            $sql_diagnosis = "INSERT INTO diagnosis_tbl (diagnosis, year, Patient_ID) VALUES ('$diagnosis', '$year',' $patient_id')";
+            $sql_diagnosis = "INSERT INTO diagnosis_tbl (Diagnosis, year) VALUES ('$diagnosis', '$year')";
              $insertdiagnosis_query = $conn->query($sql_diagnosis);
-         
+            
+
              /*if successful*/
-             if($insertdiagnosis_query===TRUE){
+
+
+             if($insertdiagnosis_query === TRUE) { 
+                $diagnosis_id = mysqli_insert_id($conn);
+             
+                 $sql2="INSERT INTO tbl_patient_diagnosis(Patient_ID,Diagnosis_ID) VALUES ('$patient_id','$diagnosis_id')";
+                 $insertdiagnos_p = $conn->query($sql2);
+             if($insertdiagnos_p===TRUE){
                  echo "<script type='text/javascript'>alert('Successfully Added!');</script>";
 
                     $URL="../patient_mngmnt.php";
@@ -65,7 +73,7 @@ if ($_POST) {
 
                  }
                 }
-
+}
       
 
 // close the database connection

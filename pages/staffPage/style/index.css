@@ -1,0 +1,305 @@
+ body{
+      background-color:#F3F3F3;
+    }
+
+    .navbar{
+    background: linear-gradient(#2eb925,#70d127),#ef8d39;
+      
+    }
+    .img-rounded{
+  display:block;
+  max-width:100%;
+  height:auto;
+  position: relative;
+    box-shadow: 10px 10px 5px grey;
+    padding: 10px;
+    background: white;
+}
+    header.carousel {
+        height: 50%;
+    }
+
+    header.carousel .item, header.carousel .item.active, header.carousel .carousel-inner {
+        height: 100%;
+    }
+
+    .carousel {
+        position: relative;
+    }
+
+    .row h1{
+          font-family: "Times New Roman", Georgia, Serif;
+    color:green;
+    }
+    .header{
+        display: block;
+    }
+    .carousel-inner {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        color:black;
+    }
+
+    .navbar-brand{
+       
+    }
+    .row1 h1{
+      border-bottom:1px solid black;
+      font-size:42px;
+      font-style: verdana;
+
+    }
+    .rowj{
+      margin-top:20px;
+
+        margin-left: -15px;
+        margin-right: -15px;
+
+    }
+
+    .jumbo{
+      border:1px solid black;
+      border-color:green;
+      background: linear-gradient(#2eb925,#70d127),#ef8d39;
+      padding:0px;
+      margin-left:50px;
+     box-shadow: 10px 10px 5px black;
+    }
+    .jumbo1{
+      border:1px solid black;
+      border-color:green;
+      background: linear-gradient(#2eb925,#70d127),#ef8d39;
+    margin-left:50px;
+      padding:0px;
+         box-shadow: 10px 10px 5px black;
+    }
+    .jumbo2{
+      border:1px solid black;
+      border-color:green;
+      background: linear-gradient(#2eb925,#70d127),#ef8d39;
+      margin-left:50px;
+      
+      padding:0px;
+       box-shadow: 10px 10px 5px black;
+    }
+
+      
+
+    .rowj h5{
+    
+    text-align:center;
+    color:black;
+    background-color:orange;
+    }
+    .rowj p{
+      color:black;
+      margin-left: 10px;
+    }
+
+    .row h4{
+    margin-top:50px;
+    border-color:pink;
+    border-bottom:5px solid black;
+    border-color: orange;
+
+    }
+
+
+    a {
+        color: #337ab7;
+        text-decoration: none;
+    }
+    .par{
+
+    margin-top:50px;
+
+    }
+    .row h1{
+       
+         color: green;
+        text-shadow: 2px 2px 4px #222;
+    }
+    .par p{
+      color:black;
+    }
+    .row h4{
+      color:green;
+    }
+    .image4{
+      border-radius: 15px 50px 30px;
+       box-shadow: 10px 10px 5px grey;
+
+    }
+    .column{
+
+      border-bottom:50px;
+      border-background: linear-gradient(#2eb925,#70d127),#ef8d39;
+    }
+   
+ /*   .containers{
+      margin-top:80px;
+      background-color:white;
+    
+    
+       box-shadow: 10px 10px 5px black;
+        padding: 20px; 
+        
+    }
+*/
+
+    /*.user{
+      margin-top:80px;
+      background-color:white;
+      
+      border: 1px solid black;
+       box-shadow: 10px 10px 5px black;
+        padding: 20px; 
+    }
+*/
+    .info{
+      margin-top:80px;
+      background-color:white;
+    
+    border:3px solid #E2D7CC;
+      /*  width:500px;*/
+       box-shadow: 5px 10px 10px 5px #E2D7CC;
+        padding: 20px; 
+    }
+
+    .news{
+    margin-left:100px;
+    margin-top:80px;
+      background-color:white;
+    height:790px;
+       border:3px solid #E2D7CC;
+      /*  width:500px;*/
+       box-shadow: 5px 10px 10px 5px #E2D7CC;
+        padding: 20px; 
+    }
+
+.news_info{
+ height:750px;
+}
+
+
+    .p p{
+      color:black;
+    }
+    .wide{
+      margin-top:50px;
+      border:1px solid black;
+      border-color:#bf0f33;
+      background:#bf0f33;
+    }
+    .btn-block{
+       box-shadow: 10px 10px 5px pink;
+    }
+
+    .grow img {
+     
+     
+      -webkit-transition: all 1s ease;
+         -moz-transition: all 1s ease;
+           -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+              transition: all 1s ease;
+    }
+     
+    .grow img:hover {
+      width: 700px;
+      height: 250px;
+    }
+
+    .tilt {
+      -webkit-transition: all 0.5s ease;
+         -moz-transition: all 0.5s ease;
+           -o-transition: all 0.5s ease;
+          -ms-transition: all 0.5s ease;
+              transition: all 0.5s ease;
+    }
+     
+    .tilt:hover {
+      -webkit-transform: rotate(-10deg);
+         -moz-transform: rotate(-10deg);
+           -o-transform: rotate(-10deg);
+          -ms-transform: rotate(-10deg);
+              transform: rotate(-10deg);
+    }
+
+    .logo_title label{
+      font-size: 30px;
+      margin-top:-20px;
+    }
+    .logo_title p{
+      font-size: 20px;
+    }
+    .logo_title{
+      margin-left: -100px;
+    }
+   .trans{
+    margin-top:-20px;
+   }
+    @media screen and (max-width:1000px){
+       .news{
+        margin-left:0px;
+      }
+  .trans{
+  opacity:0;
+   
+    }
+    .jumbo{
+ margin-left:0px;  
+    }
+    .jumbo1{
+ margin-left:0px;  
+    }
+    .jumbo2{
+ margin-left:0px;  
+    }
+  }
+  @media screen and (max-width:450px){
+     .news{
+        margin-left:0px;
+      }
+  .row h1{
+  font-size: 30px;
+}
+ 
+  }
+  .forms{
+    margin-top:100px;
+
+   
+  }
+ 
+  .search{
+    border:1px solid green;
+    magin-top:500px;
+  
+ }
+ .cont{
+  margin-left:50px;
+   margin-right:50px;
+  /*border:1px solid #E2D7CC;;*/
+ }
+ .carousel-caption h2{
+ 
+  font-weight: bold;
+  color: #000000;
+   background-color: yellow;
+ 
+  opacity: 0.6;
+ }
+ 
+ .title_left h3{
+  color:green;
+ 
+ }
+ label{
+  color:green;
+ font-size:20px;
+ }
+ .navbar{
+  border-bottom:20px solid orange;
+ }
