@@ -30,7 +30,7 @@ if ($_POST) {
        
              echo "<script type='text/javascript'>alert('Data already Exist! Add Diagnosis instead');</script>";
 
-                   $URL="../adminPagePatienViewRecord.php";
+                   $URL="../patient_mngmnt.php";
                     echo "<script>location.href='$URL'</script>"; 
             }
             /*if doesnt exist*/
@@ -52,7 +52,7 @@ if ($_POST) {
              if($insertdiagnosis_query===TRUE){
                  echo "<script type='text/javascript'>alert('Successfully Added!');</script>";
 
-                    $URL="../adminPagePatienViewRecord.php";
+                    $URL="../patient_mngmnt.php";
                     echo "<script>location.href='$URL'</script>";
 
                     }
@@ -60,7 +60,7 @@ if ($_POST) {
  
                  echo "<script type='text/javascript'>alert('Error!');</script>";
 
-                    $URL="../adminPagePatienViewRecord.php";
+                    $URL="../patient_admission.php";
                     echo "<script>location.href='$URL'</script>";
 
                  }

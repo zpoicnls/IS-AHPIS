@@ -17,7 +17,7 @@ include 'physicianPageHeader.php';
         <!-- Sidebar -->
         <?php
             include 'physicianPageSidebar.php';
-        ?>
+?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -36,7 +36,7 @@ include 'physicianPageHeader.php';
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Patient Records</h1>
 
-                    <!-- DataTales Example -->
+                    <!-- DataTables Example -->
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
@@ -53,7 +53,7 @@ include 'physicianPageHeader.php';
                                             <th>Diagnosis</th>
                                         </tr>
                                     </thead>
-                                   
+
                                     </tbody>
                                 </table>
                             </div>
@@ -81,44 +81,45 @@ include 'physicianPageHeader.php';
         <i class="fas fa-angle-up"></i>
     </a>
 
- <!-- view patient diagnosis modal -->
- <div class="modal fade" tabindex="-1" role="dialog" id="viewDiagnosisModal" >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="viewDiagnosisModalLabel">Patient Diagnosis</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-        </div>
-  
-   <form class="form-horizontal" id="viewDiagnosisModal">
-        <div class="modal-body">
+    <!-- view patient diagnosis modal -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="viewDiagnosisModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewDiagnosisModalLabel">Patient Diagnosis</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">x</span></button>
+                </div>
 
-           <div class="form-group">
-            
-                             <label for="view_diagnosis">Diagnosis:</label>
-                             <textarea class="form-control" id="viewDiagnosisTextarea" readonly></textarea>                           
-                             </div>
+                <form class="form-horizontal" id="viewDiagnosisModal">
+                    <div class="modal-body">
 
-                             <div class="form-group">
-                             <label for="diagnosis_year">Year:</label>
-                             <input type="text" name="diagnosis_year" id="diagnosis_year"  class="form-control" readonly>
-                             </div>
+                        <div class="form-group">
 
+                            <label for="view_diagnosis">Diagnosis:</label>
+                            <textarea class="form-control" id="viewDiagnosisTextarea" readonly></textarea>
                         </div>
-        </div>
-        <div class="modal-footer viewDiagnosisModal">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-        </form>
 
-      </div><!-- /.modal-content -->
+                        <div class="form-group">
+                            <label for="diagnosis_year">Year:</label>
+                            <input type="text" name="diagnosis_year" id="diagnosis_year" class="form-control" readonly>
+                        </div>
+
+                    </div>
+            </div>
+            <div class="modal-footer viewDiagnosisModal">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+            </form>
+
+        </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
-  <!-- /view patient diagnosis -->
+    </div><!-- /.modal -->
+    <!-- /view patient diagnosis -->
 
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="physicianLogoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -128,16 +129,22 @@ include 'physicianPageHeader.php';
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current
+                    session.
+                </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <?php
+      if (isset($_SESSION['usersUid'])) {
+          echo "<a class='btn btn-primary' href='../../includes/logout.inc.php'>Logout</a>";
+      }
+?>
                 </div>
             </div>
         </div>
     </div>
-  <!-- Bootstrap core JavaScript-->
-  <script src="../../vendor/jquery/jquery.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="../../vendor/jquery/jquery.min.js"></script>
     <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
@@ -152,7 +159,7 @@ include 'physicianPageHeader.php';
     <!-- Page level custom scripts -->
     <script src="../../js/demo/chart-area-demo.js"></script>
     <script src="../../js/demo/chart-pie-demo.js"></script>
-    
+
     <!-- Page level plugins -->
     <script src="../../vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="../../vendor/datatables/dataTables.bootstrap4.min.js"></script>

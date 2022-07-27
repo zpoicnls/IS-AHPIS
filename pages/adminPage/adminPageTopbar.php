@@ -25,7 +25,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <span class="mr-1 d-none d-lg-inline text-gray-600 small">
-                    <h3>Welcome Admin </h3>
+                    <h3>Welcome Admin</h3>
                 </span>
             </a>
         </li>
@@ -36,10 +36,10 @@
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                <span class="mr-4 d-none d-lg-inline text-gray-600 small">
                     <?php
                         if (isset($_SESSION['usersUid'])) {
-                            echo "<h3>".$_SESSION['usersFName']."</h3>";
+                            echo "<h3><b>".$_SESSION['usersFName']."</b></h3>";
                         }
                     ?>
                 </span>

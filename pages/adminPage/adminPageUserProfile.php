@@ -17,8 +17,8 @@ include '../../includes/dbh.inc.php';
         <?php
 
             include 'adminPageSidebar.php';
-                
-        ?>
+
+?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -32,9 +32,9 @@ include '../../includes/dbh.inc.php';
                 <!-- Topbar Navbar -->
                 <?php
 
-                    include 'adminPageTopbar.php';
-                
-                ?>
+            include 'adminPageTopbar.php';
+
+?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -64,14 +64,16 @@ include '../../includes/dbh.inc.php';
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <?php
-                                                        if (isset($_SESSION['usersUid'])) {
-                                                            echo "<p class='text-muted mb-0'>".$_SESSION['usersFName']." "
-                                                            .$_SESSION['usersMName']." ".$_SESSION['usersLName']."</p>";
-                                                        }
-                                                    ?>
+                                        if (isset($_SESSION['usersUid'])) {
+                                            echo "<p class='text-muted mb-0'>".$_SESSION['usersFName']." "
+                                            .$_SESSION['usersMName']." ".$_SESSION['usersLName']."</p>";
+                                        }
+?>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <a href="#"><i>Edit Profile Information</i></a>
+                                                    <a href="#" data-mdb-toggle="modal"
+                                                        data-mdb-target="#editUserProfileModal"><i>Edit Profile
+                                                            Information</i></a>
                                                 </div>
                                             </div>
                                             <hr>
@@ -81,10 +83,10 @@ include '../../includes/dbh.inc.php';
                                                 </div>
                                                 <div class="col-sm-9">
                                                     <?php
-                                                        if (isset($_SESSION['usersUid'])) {
-                                                            echo "<p class='text-muted mb-0'>".$_SESSION['usersEmail']."</p>";
-                                                        }
-                                                    ?>
+    if (isset($_SESSION['usersUid'])) {
+        echo "<p class='text-muted mb-0'>".$_SESSION['usersEmail']."</p>";
+    }
+?>
                                                 </div>
                                             </div>
                                             <hr>
@@ -94,10 +96,10 @@ include '../../includes/dbh.inc.php';
                                                 </div>
                                                 <div class="col-sm-9">
                                                     <?php
-                                                        if (isset($_SESSION['usersUid'])) {
-                                                            echo "<p class='text-muted mb-0'>".$_SESSION['usersUid']."</p>";
-                                                        }
-                                                    ?>
+    if (isset($_SESSION['usersUid'])) {
+        echo "<p class='text-muted mb-0'>".$_SESSION['usersUid']."</p>";
+    }
+?>
                                                 </div>
                                             </div>
                                             <hr>
@@ -107,13 +109,15 @@ include '../../includes/dbh.inc.php';
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <?php
-                                                        if (isset($_SESSION['usersUid'])) {
-                                                            echo "<p class='text-muted mb-0' type='password'>".$_SESSION['usersPwd']."</p>";
-                                                        }
-                                                    ?>
+    if (isset($_SESSION['usersUid'])) {
+        echo "<p class='text-muted mb-0' type='password'>".$_SESSION['usersPwd']."</p>";
+    }
+?>
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <a href="#"><i>Change Password</i></a>
+                                                    <a href="#" data-mdb-toggle="modal"
+                                                        data-mdb-target="#changePasswordModal"><i>Change User
+                                                            Password</i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -168,7 +172,106 @@ include '../../includes/dbh.inc.php';
                       if (isset($_SESSION['usersUid'])) {
                           echo "<a class='btn btn-primary' href='../../includes/logout.inc.php'>Logout</a>";
                       }
-                    ?>
+?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- edit modal -->
+        <div class="modal fade" id="editUserProfileModal" data-mdb-backdrop="static" data-mdb-keyboard="false"
+            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Update Profile Information</h5>
+                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form class="form-horizontal" action="../../includes/updateUserProfile.inc.php" method="POST"
+                            id="updateUserProfile">
+                            <!-- First Name Input -->
+                            <div class="form-outline mb-4">
+                                <input type="text" id="usersFName" name="usersFName" class="form-control"
+                                    value="<?php echo $_SESSION['usersFName'];?>" required />
+                                <label class="form-label" for="usersFName">First Name</label>
+                            </div>
+
+                            <!-- Middle Name Input -->
+                            <div class="form-outline mb-4">
+                                <input type="text" id="usersMName" name="usersMName" class="form-control"
+                                    value="<?php echo $_SESSION['usersMName'];?>" required />
+                                <label class=" form-label" for="usersMName">Middle Name</label>
+                            </div>
+
+                            <!-- Last Name Input -->
+                            <div class="form-outline mb-4">
+                                <input type="text" id="usersLName" name="usersLName" class="form-control"
+                                    value="<?php echo $_SESSION['usersLName'];?>" required />
+                                <label class=" form-label" for="usersLName">Last Name</label>
+                            </div>
+
+                            <!-- Email Input-->
+                            <div class="form-outline mb-4">
+                                <input type="email" id="usersEmail" name="usersEmail" class="form-control"
+                                    value="<?php echo $_SESSION['usersEmail'];?>" required />
+                                <label class=" form-label" for="usersEmail">Email</label>
+                            </div>
+
+                            <!-- User ID Input-->
+                            <div class="form-outline mb-4">
+                                <input type="text" id="usersUid" name="usersUid" class="form-control"
+                                    value="<?php echo $_SESSION['usersUid'];?>" required />
+                                <label class=" form-label" for="usersUid">Username</label>
+                            </div>
+
+                            <!-- Submit button -->
+                            <button type="submit" name="update" class="btn btn-success btn-block">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Change Password Modal -->
+        <div class="modal fade" id="changePasswordModal" data-mdb-backdrop="static" data-mdb-keyboard="false"
+            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Change Password</h5>
+                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form class="form-horizontal" action="../../includes/changePassword.inc.php" method="POST"
+                            id="updateUserProfile">
+                            <!-- Enter Current Password -->
+                            <div class="form-outline mb-4">
+                                <input type="password" id="currentPassword" name="currentPassword" class="form-control"
+                                    value="<?php echo $_SESSION['usersPwd'];?>" required />
+                                <label class="form-label" for="currentPassword">Enter Current Password</label>
+                            </div>
+
+                            <!-- Enter New Password -->
+                            <div class="form-outline mb-4">
+                                <input type="password" id="newPassword" name="newPassword" class="form-control"
+                                    required />
+                                <label class="form-label" for="newPassword">Enter New Password Password</label>
+                            </div>
+
+                            <!-- Enter New Password Again -->
+                            <div class="form-outline mb-4">
+                                <input type="password" id="newPassword2" name="newPassword2" class="form-control"
+                                    required />
+                                <label class="form-label" for="newPassword2">Enter New Password Again</label>
+                            </div>
+
+                            <!-- Submit button -->
+                            <button type="submit" name="changePassword"
+                                class="btn btn-success btn-block">Change</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -177,6 +280,9 @@ include '../../includes/dbh.inc.php';
         <!-- Bootstrap core JavaScript-->
         <script src="../../vendor/jquery/jquery.min.js"></script>
         <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- MDB -->
+        <script type="text/javascript" src="../../js/mdb.min.js"></script>
 
         <!-- Core plugin JavaScript-->
         <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>

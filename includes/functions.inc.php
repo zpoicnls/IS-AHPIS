@@ -39,6 +39,16 @@ function createUsersAccount($conn, $usersLName, $usersFName, $usersMName, $users
     exit();
 }
 
+function updateUserProfile($conn, $usersUid, $usersFName, $usersMName, $usersLName, $usersEmail)
+{
+    $sql = "UPDATE tbl_users SET usersUid='$usersUid', usersFName='$usersFName', usersMName='$usersMName', usersLName='$usersLName', usersEmail='$usersEmail' WHERE usersUid = '$usersUid'";
+    
+    if (mysqli_query($conn, $sql)) {
+        header("location: ../pages/adminPage/adminPageUserProfile.php?status=updateSuccessfull");
+        exit();
+    }
+}
+
 function loginUser($conn, $usersUid, $usersPwd)
 {
     $sql = "SELECT * FROM tbl_users WHERE usersUid='$usersUid' limit 1";
@@ -87,19 +97,29 @@ function loginUser($conn, $usersUid, $usersPwd)
     //if ($usersUidExists === false) {
    //     header("location: ../index.html?error=userdoesnotexist");
    //     exit();
-   // }
+    // }
 
-   // $dbPwd = $usersUidExists["usersPwd"];
-   // $checkPwd = password_verify($usersPwd, $dbPwd);
+    // $dbPwd = $usersUidExists["usersPwd"];
+    // $checkPwd = password_verify($usersPwd, $dbPwd);
 
-   // if ($checkPwd === false) {
+    // if ($checkPwd === false) {
    //     header("location: ../index.html?error=incorrectpassword");
    //     exit();
-  //  }
-  //  else if ($checkPwd === true) {
+    //  }
+    //  else if ($checkPwd === true) {
   //      session_start();
   //      $_SESSION["usersUid"] = $usersUidExists["usersUid"];
    //     header("location: ../pages/adminPage/adminPageDashboard.php?");
    //     exit();
-   // }
+    // }
+}
+
+function changePassword($conn, $usersUid, $usersCurrentPwd, $usersNewtPwd, $usersNewtPwd2)
+{
+    $sql = "UPDATE tbl_users SET usersPwd='$usersNewPwd' WHERE usersUid = $_SESSION[usersUid]";
+    
+    if (mysqli_query($conn, $sql)) {
+        header("location: ../pages/adminPage/adminPageUserProfile.php?status=updateSuccessfull");
+        exit();
+    }
 }
