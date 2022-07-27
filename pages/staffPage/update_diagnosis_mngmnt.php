@@ -2,6 +2,11 @@
 include 'db_connect.php';
 
 $patientID = $_GET['var_patient'];
+$diagnosisID = $_GET['var_diagnose'];
+
+$sql1 = "SELECT Diagnosis,year,Diagnosis_ID FROM diagnosis_tbl d where Diagnosis_ID= '$diagnosisID' ";
+$queryD = $conn->query($sql1); 
+$rowD = $queryD->fetch_assoc();
 
 
 $Patientquery = "select CONCAT(fname,_utf8 ' ', middle_name, _utf8 ' ', lname) AS name,bday,Patient_ID from patient_tbl where Patient_ID = '$patientID'";
@@ -11,7 +16,6 @@ $row = $queryP->fetch_assoc();
 $diagquery = "SELECT  d.Diagnosis,d.year,d.Diagnosis_ID,pd.Patient_ID FROM diagnosis_tbl d join tbl_patient_diagnosis pd on pd.Diagnosis_ID=d.Diagnosis_ID where pd.Patient_ID = '$patientID'";
 $querydiag = $conn->query($diagquery);
 $row1 = $querydiag->fetch_assoc();
-
 //for search and paging
 
 if($_POST)
@@ -146,7 +150,10 @@ include 'header.php';
                     <h1 class="h3 mb-2 text-gray-800">Patient Details</h1>
      <p class="font-weight-bold">Patient Name: <?php echo $row['name'];?></p>
     <p class="font-weight-bold">Date of Birth: <?php echo $row['bday'];?></p>
-    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+ 
+    <!--Section: Live preview-->                   
+   <!-- DataTales Example -->
+     <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
       <form action="diagnosis_mngmnt.php?var_patient= <?php echo $patientID; ?>" method="POST">
                      <div class="input-group ">
                     <input type="text" name="valueToSearch"  class="form-control " placeholder="Search for...">
@@ -174,7 +181,7 @@ include 'header.php';
             
               <?php while($row = mysqli_fetch_array($search_result)){;
               $action ='<div class="btn-group" role="group" >
-  <a type="button" class="btn btn-secondary btn-info" title="Edit" href ="update_diagnosis_mngmnt.php?var_patient='.$row1['Patient_ID'].'&var_diagnose='.$row1['Diagnosis_ID'].'"><i class="fa fa-edit" aria-hidden="true" ></i></a>
+  <a type="button" class="btn btn-secondary btn-info" title="Edit" href ="update_diagnosis_mngmnt.php?var_patient='.$row['Patient_ID'].'&var_diagnose='.$row1['Diagnosis_ID'].'"><i class="fa fa-edit" aria-hidden="true" ></i></a>
   <a type="button" class="btn btn-secondary btn-danger" title="Remove" href ="delete_diagnosis_mngmnt.php?var_patient='.$row1['Patient_ID'].'&var_diagnose='.$row1['Diagnosis_ID'].'"><i class="fa fa-trash" aria-hidden="true" ></i></a>
     ';?>
                 <tr>
@@ -243,16 +250,14 @@ if ($currentpage != $lastpage) {
 ?>
 
 </div>               
+        
                 </div>
-
-
-
                 <!-- /.container-fluid -->
       <div class="col-sm-6">
-        <form action="php_action/add_diagnosis.php" method="POST" id="createRecordForm">
+        <form action="php_action/edit_diagnosis.php" method="POST" id="createRecordForm">
         <div class="panel panel-primary">
           <div class="panel-heading">
-            Add Patient Diagnosis
+            Update Patient Diagnosis
           </div>
           <div class="panel-body">
             <div class="form-group">
@@ -261,7 +266,7 @@ if ($currentpage != $lastpage) {
               </label>
               <input type="text"
                      class="form-control"
-                     id="diagnosis" name="diagnosis" />
+                     id="diagnosis" name="diagnosis" value="<?php echo $rowD['Diagnosis'] ?>" autofocus />
             </div>
             <div class="form-group">
               <label for="year">
@@ -269,7 +274,13 @@ if ($currentpage != $lastpage) {
               </label>
               <input type="date"
                      class="form-control"
-                     id="year" name="year" />
+                     id="year" name="year" value="<?php echo $rowD['year'] ?>" />
+            </div>
+            <div class="form-group">
+              <input type="hidden"
+                     class="form-control"
+                     value="<?php echo $diagnosisID ?>"
+                     id="diagnosisid" name="diagnosisid" />
             </div>
             <div class="form-group">
               <input type="hidden"
@@ -282,8 +293,8 @@ if ($currentpage != $lastpage) {
             <div class="row">
               <div class="col-xs-12">
                 <button button type="submit" name="submit" id="submit" class="btn btn-success" 
-                  onclick="productUpdate();">
-                  Add
+                  >
+                  Update
                 </button>
               </div>
             </div>
@@ -311,27 +322,7 @@ if ($currentpage != $lastpage) {
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
- 
+  
 
 
    <!-- Bootstrap core JavaScript-->
