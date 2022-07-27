@@ -1,13 +1,12 @@
-<?php 
+<?php
 
 
 require_once '../../../includes/dbh.inc.php';
 
 
 //if form is submitted
-if($_POST) {  
-
-  $validator = array('success' => false, 'messages' => array());
+if ($_POST) {
+    $validator = array('success' => false, 'messages' => array());
 
     $usersId = $_POST['usersId'];
     $fname = $_POST['update_fname'];
@@ -24,21 +23,18 @@ if($_POST) {
 
   
 
-if($query===TRUE) {           
+    if ($query===true) {
         $validator['success'] = true;
-        $validator['messages'] = "Updated Successfully";        
-    } else {        
+        $validator['messages'] = "Updated Successfully";
+        header("location: ../adminPageUserAccount.php");
+    } else {
         $validator['success'] = false;
         $validator['messages'] = "Error while updating the information";
     }
 
 
-  // close the database connection
-  $conn->close();
+    // close the database connection
+    $conn->close();
 
-  echo json_encode($validator);
-
+    echo json_encode($validator);
 }
-
-
-?>

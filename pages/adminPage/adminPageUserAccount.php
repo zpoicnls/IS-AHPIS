@@ -1,12 +1,11 @@
 <?php
     include '../../includes/dbh.inc.php';
-?>
+    ?>
 
 <html lang="en">
 
 <head>
     <?php include 'adminPageHeader.php'?>
-
 </head>
 
 <body id="page-top">
@@ -16,9 +15,8 @@
 
         <!-- Sidebar -->
         <?php
-
-                    include 'adminPageSidebar.php';
-                ?>
+               include 'adminPageSidebar.php';
+    ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -27,15 +25,10 @@
             <!-- Main Content -->
             <div id="content">
 
-
-
-
                 <!-- Topbar Navbar -->
                 <?php
-
-                     include 'adminPageTopbar.php';
-                
-                    ?>
+            include 'adminPageTopbar.php';
+    ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -46,30 +39,22 @@
 
                     <!-- Submit button -->
                     <!-- Button trigger modal -->
-
-
-
-
-
-
-
-
                     <?php
-                            if (isset($_GET["error"])) {
-                                if ($_GET["error"] == "usernametaken") {
-                                    echo '<script language="javascript">';
-                                    echo 'alert("User ID Aready Exists!s ")';
-                                    echo '</script>';
-                                }
-                            }
-                            if (isset($_GET["status"])) {
-                                if ($_GET['status'] == 'success') {
-                                    echo '<script language="javascript">';
-                                    echo 'alert("Account created successfully.")';
-                                    echo '</script>';
-                                }
-                            }
-                        ?>
+            if (isset($_GET["error"])) {
+                if ($_GET["error"] == "usernametaken") {
+                    echo '<script language="javascript">';
+                    echo 'alert("User ID Aready Exists!s ")';
+                    echo '</script>';
+                }
+            }
+            if (isset($_GET["status"])) {
+                if ($_GET['status'] == 'success') {
+                    echo '<script language="javascript">';
+                    echo 'alert("Account created successfully.")';
+                    echo '</script>';
+                }
+            }
+    ?>
 
                     <div class="container-fluid">
 
@@ -97,8 +82,8 @@
                                         <thead>
                                             <tr>
                                                 <th>First Name</th>
-                                                <th>Last Name</th>
                                                 <th>Middle Name</th>
+                                                <th>Last Name</th>
                                                 <th>E-mail</th>
                                                 <th>Username</th>
                                                 <th>Password</th>
@@ -106,7 +91,6 @@
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-
                                         </tbody>
                                     </table>
                                 </div>
@@ -228,6 +212,8 @@
                     <br>
                     <br>
                     <br>
+                    <br>
+                    <br>
                 </div>
                 <!-- End of Main Content -->
 
@@ -261,10 +247,10 @@
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <?php
-                      if (isset($_SESSION['usersUid'])) {
-                          echo "<a class='btn btn-primary' href='../../includes/logout.inc.php'>Logout</a>";
-                      }
-                    ?>
+      if (isset($_SESSION['usersUid'])) {
+          echo "<a class='btn btn-primary' href='../../includes/logout.inc.php'>Logout</a>";
+      }
+    ?>
                     </div>
                 </div>
             </div>

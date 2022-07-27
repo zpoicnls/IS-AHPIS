@@ -1,6 +1,6 @@
 <?php
     session_start();
-?>
+    ?>
 
 <head>
 
@@ -23,5 +23,8 @@
 
     <!-- Custom styles for this page -->
     <link href="../../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <!-- MDB -->
+    <link rel="stylesheet" href="../../css/mdb.min.css" />
 
 </head>
