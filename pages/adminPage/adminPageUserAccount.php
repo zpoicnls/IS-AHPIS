@@ -85,6 +85,7 @@
                                                 <th>Middle Name</th>
                                                 <th>Last Name</th>
                                                 <th>E-mail</th>
+                                                <th>Gender</th>
                                                 <th>Username</th>
                                                 <th>Password</th>
                                                 <th>Usertype</th>
@@ -147,6 +148,17 @@
                                                     onKeyPress="if(this.value.length==30) return false;" min="0"
                                                     required autofocus>
 
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="update_address">Gender:</label>
+                                                <br>
+                                                <select class="form-select" name="usersGender"
+                                                    aria-label="Default select example">
+                                                    <option selected>Select Gender</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                </select>
                                             </div>
 
                                             <div class="form-group">
@@ -321,6 +333,15 @@
                                     onKeyPress="if(this.value.length==30) return false;" min="0" required autofocus>
 
                             </div>
+                            <div class="form-group">
+                            <label for="update_gender">Gender</label>
+
+                            <select name="update_gender" id="update_gender" class="form-control" required>
+
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                            </select>
+                        </div>
                             <div class="edit-messages">
                             </div>
                         </div>

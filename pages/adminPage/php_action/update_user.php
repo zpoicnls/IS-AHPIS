@@ -15,9 +15,10 @@ if ($_POST) {
     $email = $_POST['update_email'];
     $uname = $_POST['update_uname'];
     $pword = $_POST['update_pword'];
+    $gender = $_POST['update_gender'];
 
    
-    $sql = "UPDATE tbl_users SET usersFName = '$fname', usersMName = '$mname', usersLName = '$lname', usersEmail = '$email', usersUid = '$uname', usersPwd = '$pword'  WHERE usersId = $usersId";
+    $sql = "UPDATE tbl_users SET usersFName = '$fname', usersMName = '$mname', usersLName = '$lname', usersEmail = '$email', usersUid = '$uname', usersPwd = '$pword', usersGender = '$gender'  WHERE usersId = $usersId";
     
     $query = $conn->query($sql);
 
