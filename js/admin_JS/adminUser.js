@@ -67,8 +67,9 @@ function update_account(usersId=null){
             $("#update_lname").val(response.usersLName);
              $("#update_email").val(response.usersEmail);
               $("#update_uname").val(response.usersUid);
-              $("#update_pword").val(response.usersPwd).change();
-          
+              $("#update_pword").val(response.usersPwd);
+              $("#update_gender").val(response.usersGender).change();
+              console.log(response.usersGender);
           //  id 
           $(".editUserAccountModal").append('<input type="hidden" name="usersId" id="usersId" value="'+response.usersId+'"/>');
   
@@ -84,8 +85,9 @@ function update_account(usersId=null){
             var update_email = $("#update_email").val();
             var update_uname = $("#update_uname").val();
             var update_pword = $("#update_pword").val();
-            console.log(update_uname);
-    if(update_fname, update_mname,update_lname,update_email,update_uname,update_pword) {
+            var update_gender = $("#update_gender").val();
+           
+    if(update_fname, update_mname,update_lname,update_email,update_uname,update_pword,update_gender) {
               $.ajax({
                 url: form.attr('action'),
                 type: form.attr('method'),

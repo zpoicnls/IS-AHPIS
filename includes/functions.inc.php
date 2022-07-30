@@ -23,16 +23,16 @@ function usersUidExists($conn, $usersUid)
     mysqli_stmt_close($stmt);
 }
 
-function createUsersAccount($conn, $usersLName, $usersFName, $usersMName, $usersEmail, $usersType, $usersUid, $usersPwd)
+function createUsersAccount($conn, $usersLName, $usersFName, $usersMName, $usersEmail, $usersType, $usersUid, $usersPwd, $usersGender)
 {
-    $sql = "INSERT INTO tbl_users (usersLName, usersFName, usersMName, usersEmail, usersType, usersUid, usersPwd) VALUES (?, ?, ?, ?, ?, ?, ?);";
+    $sql = "INSERT INTO tbl_users (usersLName, usersFName, usersMName, usersEmail, usersType, usersUid, usersPwd, usersGender) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../pages/adminPage/adminPageUserAccount.php?error=stmtfailed");
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "sssssss", $usersLName, $usersFName, $usersMName, $usersEmail, $usersType, $usersUid, $usersPwd);
+    mysqli_stmt_bind_param($stmt, "ssssssss", $usersLName, $usersFName, $usersMName, $usersEmail, $usersType, $usersUid, $usersPwd, $usersGender);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../pages/adminPage/adminPageUserAccount.php?status=success");
