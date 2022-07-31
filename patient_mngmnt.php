@@ -60,7 +60,7 @@ include 'header.php';
                             </div>
                         </div>
                     </div>
-
+<div class="removeMessages"></div>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -104,26 +104,8 @@ include 'header.php';
         </div>
     </div>
 
-    <!-- Remove patient modal confirmation -->
-  <div class="modal fade" tabindex="-1" role="dialog" id="removeAccountModal">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Remove Patient</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-        </div>
-        <div class="modal-body">
-          <p>Do you really want to delete the details of this patient?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
-          <button type="button" name="removeBtn" class="btn btn-secondary" id="removeBtn">Yes</button>
-        </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
-  <!-- /remove modal -->
 
+ 
 
     <!-- edit PATIENT -->
 <!-- edit modal -->
@@ -231,6 +213,25 @@ include 'header.php';
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
   <!-- /edit modal patient -->
+   <!-- Remove patient modal confirmation -->
+  <div class="modal fade" tabindex="-1" role="dialog" id="removeAccountModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Remove Patient</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+        </div>
+        <div class="modal-body">
+          <p>Do you really want to delete the details of this patient?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+          <button type="submit" name="removeBtn" class="btn btn-secondary" id="removeBtn">Yes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  <!-- /remove modal -->
 
 
     <!-- Bootstrap core JavaScript-->

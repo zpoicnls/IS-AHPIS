@@ -1,0 +1,128 @@
+/*!
+ * Start Bootstrap - Modern Business (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+/* Global Styles */
+
+html,
+body {
+    height: 100%;
+}
+.inside{
+    border:1px solid black;
+
+}
+.ins{
+     border:1px solid black;
+}
+
+.form{
+    margin-top:30px;
+padding-right:0px;
+border:5px solid black;
+border-color:orange;
+/*
+background-image:url("../images/dar logo.png");
+background-repeat: no-repeat;
+background-position: top right;
+background-size: 100px;*/
+
+}
+
+.button{
+
+    padding-left:60px;
+}
+
+
+
+.logo{
+
+margin top:10px;
+
+}
+
+.password{
+margin-left:30px;
+    
+}
+.mail{
+    margin-top:10px;
+    margin-left:30px;
+}
+
+.form-group{
+    margin-top:20px;
+    width:447px;
+
+}
+
+.button{
+    
+padding:0px;
+margin-left:120px;
+
+}
+.footer{
+    margin-top:90px;
+
+    height:100;
+    width:1164;
+}
+.foot{
+    border:2px solid black;
+    
+    border-color:orange;
+}
+.foot h4{
+
+color:red;
+}
+
+body {
+    padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.img-portfolio {
+    margin-bottom: 30px;
+}
+
+.img-hover:hover {
+    opacity: 0.8;
+}
+
+/* Home Page Carousel */
+
+/* Footer Styles */
+
+footer {
+    margin: 50px 0;
+}
+
+/* Responsive Styles */
+
+@media(max-width:991px) {
+    .customer-img,
+    .img-related {
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width:767px) {
+    .img-portfolio {
+        margin-bottom: 15px;
+    }
+
+    header.carousel .carousel {
+        height: 70%;
+    }
+
+}
+.container{
+    padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
