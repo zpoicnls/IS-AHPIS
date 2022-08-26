@@ -5,7 +5,7 @@ include '../../includes/dbh.inc.php';
 <html lang="en">
 
 <head>
-    <?php include 'adminPageHeader.php' ?>
+    <?php include 'header.php' ?>
 </head>
 
 <body id="page-top">
@@ -16,7 +16,7 @@ include '../../includes/dbh.inc.php';
         <!-- Sidebar -->
         <?php
 
-            include 'adminPageSidebar.php';
+            include 'sidebar.php';
 
         ?>
         <!-- End of Sidebar -->
@@ -32,7 +32,7 @@ include '../../includes/dbh.inc.php';
                 <!-- Topbar Navbar -->
                 <?php
 
-            include 'adminPageTopbar.php';
+            include 'topbar.php';
 
                 ?>
                 <!-- End of Topbar -->
@@ -64,10 +64,11 @@ include '../../includes/dbh.inc.php';
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <?php
-                                                        if (isset($_SESSION['usersUid'])) {
-                                                            echo "<p class='text-muted mb-0'>".$_SESSION['usersFName']." ".$_SESSION['usersMName']." ".$_SESSION['usersLName']."</p>";
-                                                        }
+                                                       if (isset($_SESSION['usersUid'])) {
+                                                           echo "<p class='text-muted mb-0'>".$_SESSION['usersFName']." ".$_SESSION['usersMName']." ".$_SESSION['usersLName'].""."</p>";
+                                                       }
                                                     ?>
+
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <a href="#" data-mdb-toggle="modal"
@@ -95,10 +96,10 @@ include '../../includes/dbh.inc.php';
                                                 </div>
                                                 <div class="col-sm-9">
                                                     <?php
-    if (isset($_SESSION['usersUid'])) {
-        echo "<p class='text-muted mb-0'>".$_SESSION['usersUid']."</p>";
-    }
-?>
+                                                        if (isset($_SESSION['usersUid'])) {
+                                                            echo "<p class='text-muted mb-0'>".$_SESSION['usersUid']."</p>";
+                                                        }
+                                                    ?>
                                                 </div>
                                             </div>
                                             <hr>
@@ -129,6 +130,26 @@ include '../../includes/dbh.inc.php';
                 </div>
                 <!-- End of Main Content -->
 
+                <!-- Logout Modal-->
+                <div class="modal fade" id="staffLogoutModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">Select "Logout" below if you are ready to end your current session.
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                <a class="btn btn-primary" href="../../index.html">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
 

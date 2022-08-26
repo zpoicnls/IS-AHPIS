@@ -28,7 +28,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Appointment</a></li>
+                       <!-- <li class="nav-item"><a class="nav-link" href="#portfolio">Appointment</a></li>-->
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -143,7 +143,7 @@
                 </div>    
             </div>
         </section>
-        <!-- Portfolio Grid-->
+        <!-- Portfolio Grid
         <section class="page-section bg-light" id="portfolio">
             <div class="container">
                 <div class="text-center">
@@ -157,24 +157,24 @@
                                 <h2 style="color: green;">Fill in the information needed below and set an appointment.</h2>
                                 <p><em>(Please check email for the appointment schedule.)</em></p>
                             </div>
-                            <form>
-                                <!-- Form start -->
+                            <form>-->
+                                <!-- Form start 
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label" for="name">Name</label>
                                             <input id="name" name="name" type="text" placeholder="Name" class="form-control input-md">
                                         </div>
-                                    </div>
-                                    <!-- Text input-->
+                                    </div>-->
+                                    <!-- Text input
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label" for="email">Email</label>
                                             <input id="email" name="email" type="text" placeholder="E-Mail" class="form-control input-md">
                                         </div>
                                     </div>
-                                    <div class="col-md-12" ><br></div>
-                                    <!-- Select Basic -->
+                                    <div class="col-md-12" ><br></div>-->
+                                    <!-- Select Basic 
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label" for="appointmentfor">Appointment For</label>
@@ -193,16 +193,16 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-12" ><br></div>
-                                    <!-- Button -->
+                                    <div class="col-md-12" ><br></div>-->
+                                    <!-- Button 
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <button id="singlebutton" name="singlebutton" class="btn btn-lg btn-success">Make An Appointment</button>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
-                            <!-- form end -->
+                            </form>-->
+                            <!-- form end
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -214,11 +214,11 @@
                                 <div class="feature feature-blurb-text">
                                     <h4 class="feature-title">Experienced Staff</h4>
                                     <div class="feature-content">
-                                        <ul>
+                                        <ul> -->
                                            <!-- <li>Patient and family education</li>
                                             <li>Checking and monitoring vital signs</li>
                                             <li>Emergency room care</li>
-                                            <li>Patient transport</li>-->
+                                            <li>Patient transport</li>
                                             <li>Patient safety</li>
                                             <li>Technology skills</li> 
                                             <li>Excellent communication skills</li>
@@ -228,21 +228,21 @@
                                             <li>Excellent teamwork skills displayed through experience collaborating with other nurses and doctors to improve patient and family education programs</li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div>-->
                                 <!-- <div class="feature feature-blurb-text">
                                     <h4 class="feature-title">Low Price & Fees</h4>
                                     <div class="feature-content">
                                         <p>Praesent eu sollicitudin nunc. Cras malesuada vel nisi consequat pretium. Integer auctor elementum nulla suscipit in.</p>
                                     </div>
-                                </div> -->
+                                </div> 
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
         <!-- About-->
-        <section class="page-section" id="about">
+        <section class="page-section bg-light" id="about">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">About</h2>
@@ -284,7 +284,7 @@
             </div>
         </section>
         <!-- Team-->
-        <section class="page-section bg-light" id="team">
+        <section class="page-section" id="team">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Our Amazing Personnel</h2>
@@ -386,53 +386,35 @@
                 <!-- To make this form functional, sign up at-->
                 <!-- https://startbootstrap.com/solution/contact-forms-->
                 <!-- to get an API token!-->
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                <form id="contactForm" action="includes/contactForm.inc.php" method="post">
                     <div class="row align-items-stretch mb-5">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <!-- Name input-->
-                                <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
+                                <input class="form-control" id="name" name="fullName" type="text" placeholder="Full Name *" required />
                                 <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                             </div>
                             <div class="form-group">
                                 <!-- Email address input-->
-                                <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
+                                <input class="form-control" id="email" name="email" type="email" placeholder="Your Email *" required />
                                 <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                             </div>
                             <div class="form-group mb-md-0">
                                 <!-- Phone number input-->
-                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
+                                <input class="form-control" id="phone" name="phoneNumber" type="tel" placeholder="Your Phone *" required />
                                 <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group form-group-textarea mb-md-0">
                                 <!-- Message input-->
-                                <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                                <textarea class="form-control" id="message" name="message" placeholder="Your Message *" required ></textarea>
                             </div>
                         </div>
                     </div>
-                    <!-- Submit success message-->
-                    <!---->
-                    <!-- This is what your users will see when the form-->
-                    <!-- has successfully submitted-->
-                    <div class="d-none" id="submitSuccessMessage">
-                        <div class="text-center text-white mb-3">
-                            <div class="fw-bolder">Form submission successful!</div>
-                            To activate this form, sign up at
-                            <br />
-                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                        </div>
-                    </div>
-                    <!-- Submit error message-->
-                    <!---->
-                    <!-- This is what your users will see when there is-->
-                    <!-- an error submitting the form-->
-                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                    <!-- Submit Button-->
-                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
+
+                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Send Message</button></div>
                 </form>
             </div>
         </section>

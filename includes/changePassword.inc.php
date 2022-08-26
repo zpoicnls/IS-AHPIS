@@ -1,6 +1,7 @@
 <?php
 
 if (isset($_POST["changePassword"])) {
+    session_start();
     $usersUid = $_SESSION['usersUid'];
     $usersCurrentPwd = $_POST["currentPassword"];
     $usersNewtPwd = $_POST["newPassword"];
@@ -9,8 +10,10 @@ if (isset($_POST["changePassword"])) {
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
 
-    $sql = "SELECT * FROM tbl_users WHERE usersUid = $_SESSION[usersUid]";
-    $result = $conn->$query($sql);
+    $usersUid = $_SESSION['usersUid'];
+
+    $sql = "SELECT * FROM tbl_users WHERE usersUid = $usersUid";
+    $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {

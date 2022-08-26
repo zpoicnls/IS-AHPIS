@@ -72,18 +72,33 @@ function loginUser($conn, $usersUid, $usersPwd)
                 session_start();
                 $_SESSION['usersUid'] = $user_data['usersUid'];
                 $_SESSION['usersFName'] = $user_data['usersFName'];
+                $_SESSION['usersMName'] = $user_data['usersMName'];
+                $_SESSION['usersLName'] = $user_data['usersLName'];
+                $_SESSION['usersEmail'] = $user_data['usersEmail'];
+                $_SESSION['usersType'] = $user_data['usersType'];
+                $_SESSION['usersPwd'] = $user_data['usersPwd'];
                 header("location: ../pages/physicianPage/physicianPageDashboard.php");
                 die;
             } elseif ($user_data['usersPwd'] === $usersPwd && $user_data['usersType'] === 'Nurse') {
                 session_start();
                 $_SESSION['usersUid'] = $user_data['usersUid'];
                 $_SESSION['usersFName'] = $user_data['usersFName'];
+                $_SESSION['usersMName'] = $user_data['usersMName'];
+                $_SESSION['usersLName'] = $user_data['usersLName'];
+                $_SESSION['usersEmail'] = $user_data['usersEmail'];
+                $_SESSION['usersType'] = $user_data['usersType'];
+                $_SESSION['usersPwd'] = $user_data['usersPwd'];
                 header("location: ../pages/staffPage/patient_mngmnt.php");
                 die;
             } elseif ($user_data['usersPwd'] === $usersPwd && $user_data['usersType'] === 'Office Staff') {
                 session_start();
                 $_SESSION['usersUid'] = $user_data['usersUid'];
                 $_SESSION['usersFName'] = $user_data['usersFName'];
+                $_SESSION['usersMName'] = $user_data['usersMName'];
+                $_SESSION['usersLName'] = $user_data['usersLName'];
+                $_SESSION['usersEmail'] = $user_data['usersEmail'];
+                $_SESSION['usersType'] = $user_data['usersType'];
+                $_SESSION['usersPwd'] = $user_data['usersPwd'];
                 header("location: ../pages/staffPage/patient_mngmnt.php");
                 die;
             }
