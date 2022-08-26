@@ -118,6 +118,7 @@ include 'header.php';
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -144,61 +145,63 @@ include 'header.php';
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Patient Details</h1>
-     <p class="font-weight-bold">Patient Name: <?php echo $row['name'];?></p>
-    <p class="font-weight-bold">Date of Birth: <?php echo $row['bday'];?></p>
-    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-      <form action="diagnosis_mngmnt.php?var_patient= <?php echo $patientID; ?>" method="POST">
-                     <div class="input-group ">
-                    <input type="text" name="valueToSearch"  class="form-control " placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-info" type="submit" name="search">Go!</button>
-                    </span>
-                  </div>
-</div>
-    <a type="button" class="btn btn-success" title="Add New Diagnosis" href ="add_diagnosis_mngmnt.php?var_patient=<?php echo $patientID; ?>">Add New Diagnosis</a>
-    <!--Section: Live preview-->                   
-   <!-- DataTales Example -->
-                    
-                             <table id="DiagnosisList" class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Diagnosed Date</th>          
-      <th>Diagnosis of patient</th>
-         
-    </tr>
-  </thead>
-            <!--Table body-->
-          <tbody>
-            
-            
-              <?php while($row = mysqli_fetch_array($search_result)){;
+                    <p class="font-weight-bold">Patient Name: <?php echo $row['name'];?></p>
+                    <p class="font-weight-bold">Date of Birth: <?php echo $row['bday'];?></p>
+                    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                        <form action="diagnosis_mngmnt.php?var_patient= <?php echo $patientID; ?>" method="POST">
+                            <div class="input-group ">
+                                <input type="text" name="valueToSearch" class="form-control "
+                                    placeholder="Search for...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info" type="submit" name="search">Go!</button>
+                                </span>
+                            </div>
+                    </div>
+                    <a type="button" class="btn btn-success" title="Add New Diagnosis"
+                        href="add_diagnosis_mngmnt.php?var_patient=<?php echo $patientID; ?>">Add New Diagnosis</a>
+                    <!--Section: Live preview-->
+                    <!-- DataTales Example -->
+
+                    <table id="DiagnosisList" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Diagnosed Date</th>
+                                <th>Diagnosis of patient</th>
+
+                            </tr>
+                        </thead>
+                        <!--Table body-->
+                        <tbody>
+
+
+                            <?php while($row = mysqli_fetch_array($search_result)){;
               $action ='<div class="btn-group" role="group" >
   <a type="button" class="btn btn-secondary btn-info" title="Edit" href ="update_diagnosis_mngmnt.php?var_patient='.$row1['Patient_ID'].'&var_diagnose='.$row1['Diagnosis_ID'].'"><i class="fa fa-edit" aria-hidden="true" ></i></a>
   <a type="button" class="btn btn-secondary btn-danger" title="Remove" href ="delete_diagnosis_mngmnt.php?var_patient='.$row1['Patient_ID'].'&var_diagnose='.$row1['Diagnosis_ID'].'"><i class="fa fa-trash" aria-hidden="true" ></i></a>
     ';?>
-                <tr>
-                <td><?php echo $action;?></td>
-                <td><?php echo $row['year'];?></td>
-                <td><?php echo $row['Diagnosis'];?></td>
-                
-                </tr>
-              <?php };  ?>
+                            <tr>
+                                <td><?php echo $action;?></td>
+                                <td><?php echo $row['year'];?></td>
+                                <td><?php echo $row['Diagnosis'];?></td>
 
-            
-          </tbody>
-          <!--Table body-->
-</table>
-</form>                          
- <div class="col-md-6 pagination ">
-     <?php
+                            </tr>
+                            <?php };  ?>
+
+
+                        </tbody>
+                        <!--Table body-->
+                    </table>
+                    </form>
+                    <div class="col-md-6 pagination ">
+                        <?php
 
 echo $pagination;
 
 ?>
-</div>
- <div class="col-md-6 paging">
-     <?php
+                    </div>
+                    <div class="col-md-6 paging">
+                        <?php
 
   /*range of num links to show*/
     $range =3 ;
@@ -242,55 +245,49 @@ if ($currentpage != $lastpage) {
 
 ?>
 
-</div>               
+                    </div>
                 </div>
 
 
 
                 <!-- /.container-fluid -->
-      <div class="col-sm-6">
-        <form action="php_action/add_diagnosis.php" method="POST" id="createRecordForm">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            Add Patient Diagnosis
-          </div>
-          <div class="panel-body">
-            <div class="form-group">
-              <label for="diagnosis">
-                Diagnosis
-              </label>
-              <input type="text"
-                     class="form-control"
-                     id="diagnosis" name="diagnosis" />
-            </div>
-            <div class="form-group">
-              <label for="year">
-                Date Diagnosed
-              </label>
-              <input type="date"
-                     class="form-control"
-                     id="year" name="year" />
-            </div>
-            <div class="form-group">
-              <input type="hidden"
-                     class="form-control"
-                     value="<?php echo $patientID ?>"
-                     id="patientid" name="patientid" />
-            </div>
-          </div>
-          <div class="panel-footer">
-            <div class="row">
-              <div class="col-xs-12">
-                <button button type="submit" name="submit" id="submit" class="btn btn-success" 
-                  onclick="productUpdate();">
-                  Add
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
-      </div>
+                <div class="col-sm-6">
+                    <form action="php_action/add_diagnosis.php" method="POST" id="createRecordForm">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                Add Patient Diagnosis
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label for="diagnosis">
+                                        Diagnosis
+                                    </label>
+                                    <input type="text" class="form-control" id="diagnosis" name="diagnosis" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="year">
+                                        Date Diagnosed
+                                    </label>
+                                    <input type="date" class="form-control" id="year" name="year" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" value="<?php echo $patientID ?>"
+                                        id="patientid" name="patientid" />
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <button button type="submit" name="submit" id="submit" class="btn btn-success"
+                                            onclick="productUpdate();">
+                                            Add
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
             <!-- End of Main Content -->
 
@@ -312,7 +309,7 @@ if ($currentpage != $lastpage) {
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="staffLogoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -331,10 +328,10 @@ if ($currentpage != $lastpage) {
         </div>
     </div>
 
- 
 
 
-   <!-- Bootstrap core JavaScript-->
+
+    <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -351,16 +348,16 @@ if ($currentpage != $lastpage) {
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
     <!-- patient view Javascript -->
-   <!-- <script type="text/javascript" src="js/patient_JS/diagnosis_view.js"></script> -->
+    <!-- <script type="text/javascript" src="js/patient_JS/diagnosis_view.js"></script> -->
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="js/jquery.dataTables.min.js"></script>
-<script src="js/dataTables.bootstrap.min.js"></script>    
-<link rel="stylesheet" href="css/dataTables.bootstrap.min.css" />
-<script src="js/patient_JS/data.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/dataTables.bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/dataTables.bootstrap.min.css" />
+    <script src="js/patient_JS/data.js"></script>
 </body>
 
 </html>
