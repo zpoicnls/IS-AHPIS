@@ -9,6 +9,7 @@ if(isset($_POST["submit"])){
     $usersType = $_POST["usersType"];
     $usersUid = $_POST["usersUid"];
     $usersPwd = $_POST["usersPwd"];
+    $usersGender = $_POST["usersGender"];
     
 
     require_once 'dbh.inc.php';
@@ -18,7 +19,7 @@ if(isset($_POST["submit"])){
         header("location: ../pages/adminPage/adminPageUserAccount.php?error=usernametaken");
         exit();      
     }
-    createUsersAccount ($conn, $usersLName, $usersFName, $usersMName, $usersEmail, $usersType, $usersUid, $usersPwd);
+    createUsersAccount ($conn, $usersLName, $usersFName, $usersMName, $usersEmail, $usersType, $usersUid, $usersPwd, $usersGender);
 
 }
 else{
