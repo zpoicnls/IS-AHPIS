@@ -56,210 +56,250 @@ include 'db_connect.php';
                                     <a href="#" class="d-none d-sm-inline-block btn btn-l btn-primary shadow-sm"><i
                                             class="fas fa-download fa-sm text-white-50"></i> Register</a>
                                 </div>
-                                <fieldset>
-                                    <div class="form-group row">
-                                        <div class="col-sm-9">
-                                            <label for="fullName" class="form-label mt-4">Full Name</label>
+                                <div class="form-group row">
+                                    <div class="col-sm-9">
+                                        <label for="fullName" class="form-label mt-4"><b>Full Name</b></label>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label for="age" class="form-label mt-4"><b>Age</b></label>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <label for="age" class="form-label mt-4"><b>Sex</b></label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" id="lastName"
+                                            aria-describedby="lastName" placeholder="Surname" />
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" id="firstName"
+                                            aria-describedby="firstName" placeholder="Given Name" />
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" id="middleName"
+                                            aria-describedby="middleName" placeholder="Middle Name" />
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="age" aria-describedby="age"
+                                            placeholder="Age" />
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <input type="text" class="form-control" id="sex" aria-describedby="sex"
+                                            placeholder="M or F" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <label for="fullName" class="form-label mt-4"><b>Address</b></label>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label for="age" class="form-label mt-4"><b>Email</b></label>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label for="age" class="form-label mt-4"><b>Contact #</b></label>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label for="age" class="form-label mt-4"><b>Date of Birth</b></label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="address" aria-describedby="address"
+                                            placeholder="Complete Address" />
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="email" class="form-control" id="email" aria-describedby="email"
+                                            placeholder="Email Address" />
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="contact" aria-describedby="contact"
+                                            placeholder="Cellphone #" />
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="date" class="form-control" id="dob" aria-describedby="dob"
+                                            placeholder="Date of Birth" />
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label for="weight" class="form-label mt-4"><b>Weight</b></label>
+                                            </div>
+                                            <div class="col-sm-8 mt-3">
+                                                <input type="text" class="form-control" id="weight"
+                                                    aria-describedby="weight" placeholder="lbs" />
+                                            </div>
                                         </div>
-                                        <div class="col-sm-2">
-                                            <label for="age" class="form-label mt-4">Age</label>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label for="height" class="form-label mt-4"><b>Height</b></label>
+                                            </div>
+                                            <div class="col-sm-8 mt-3">
+                                                <input type="text" class="form-control" id="height"
+                                                    aria-describedby="height" placeholder="ft" />
+                                            </div>
                                         </div>
-                                        <div class="col-sm-1">
-                                            <label for="age" class="form-label mt-4">Sex</label>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label for="temperature"
+                                                    class="form-label mt-4"><b>Temperature</b></label>
+                                            </div>
+                                            <div class="col-sm-8 mt-3">
+                                                <input type="text" class="form-control" id="temperature"
+                                                    aria-describedby="temperature" placeholder="Celcius" />
+                                            </div>
                                         </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label for="bp" class="form-label mt-4"><b>Blood
+                                                        Pressure</b></label>
+                                            </div>
+                                            <div class="col-sm-8 mt-3">
+                                                <input type="text" class="form-control" id="bp" aria-describedby="bp"
+                                                    placeholder="Blood Pressure" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label for="hr" class="form-label mt-4"><b>HR</b></label>
+                                            </div>
+                                            <div class="col-sm-8 mt-3">
+                                                <input type="text" class="form-control" id="hr" aria-describedby="hr"
+                                                    placeholder="HR" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label for="rr" class="form-label mt-4"><b>RR</b></label>
+                                            </div>
+                                            <div class="col-sm-8 mt-3">
+                                                <input type="text" class="form-control" id="rr" aria-describedby="rr"
+                                                    placeholder="RR" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label for="chiefComplaint" class="form-label mt-4"><b>Chief
+                                                        Complaint</b></label>
+                                            </div>
+                                            <div class="col-sm-8 mt-3">
+                                                <textarea class="form-control" id="chiefComplaint" rows="3"
+                                                    placeholder="Chief Complaint"></textarea>
+
+                                            </div>
+                                        </div>
+
                                     </div>
 
-                                    <div class="form-group row">
-                                        <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="lastName"
-                                                aria-describedby="lastName" placeholder="Surname" />
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label for="vital" class="form-label mt-4"><b>Vital
+                                                        Signs</b></label>
+                                            </div>
+                                            <div class="col-sm-8 mt-3">
+                                                <input type="text" class="form-control" id="vital"
+                                                    aria-describedby="vital" placeholder="Vital Signs" />
+                                            </div>
                                         </div>
-                                        <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="lastName"
-                                                aria-describedby="lastName" placeholder="Given Name" />
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label for="subjective"
+                                                    class="form-label mt-4"><b>Subjective</b></label>
+                                            </div>
+                                            <div class="col-sm-8 mt-3">
+                                                <input type="text" class="form-control" id="subjective"
+                                                    aria-describedby="subjective" placeholder="Subjective" />
+                                            </div>
                                         </div>
-                                        <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="lastName"
-                                                aria-describedby="lastName" placeholder="Middle Name" />
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label for="objective" class="form-label mt-4"><b>Objective</b></label>
+                                            </div>
+                                            <div class="col-sm-8 mt-3">
+                                                <input type="text" class="form-control" id="objective"
+                                                    aria-describedby="objective" placeholder="Objective" />
+                                            </div>
                                         </div>
-                                        <div class="col-sm-2">
-                                            <input type="text" class="form-control" id="lastName"
-                                                aria-describedby="lastName" placeholder="Age" />
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label for="diagnosis"
+                                                    class="form-label mt-4"><b>Assessment/Diagnosis</b></label>
+                                            </div>
+                                            <div class="col-sm-8 mt-3">
+                                                <textarea class="form-control" id="diagnosis" rows="3"
+                                                    placeholder="Assessment/Diagnosis"></textarea>
+                                            </div>
                                         </div>
-                                        <div class="col-sm-1">
-                                            <input type="text" class="form-control" id="lastName"
-                                                aria-describedby="lastName" placeholder="Age" />
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label for="prescription"
+                                                    class="form-label mt-4"><b>Prescription</b></label>
+                                            </div>
+                                            <div class="col-sm-8 mt-3">
+                                                <textarea class="form-control" id="prescription" rows="3"
+                                                    placeholder="Prescription"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label for="plan" class="form-label mt-4"><b>Plan</b></label>
+                                            </div>
+                                            <div class="col-sm-8 mt-3">
+                                                <textarea class="form-control" id="plan" rows="3"
+                                                    placeholder="Plan"></textarea>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label for="physician" class="form-label mt-4"><b>Pysician</b></label>
+                                            </div>
+                                            <div class="col-sm-8 mt-3">
+                                                <input type="text" class="form-control" id="physician"
+                                                    aria-describedby="physician" placeholder="Attending Physician" />
+                                            </div>
                                         </div>
                                     </div>
-
-                                    <div class="form-group row">
-                                        <div class="col-sm-6">
-                                            <label for="fullName" class="form-label mt-4">Address</label>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <label for="age" class="form-label mt-4">Email</label>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <label for="age" class="form-label mt-4">Contact #</label>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <label for="age" class="form-label mt-4">Date of Birth</label>
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label for="specializaiton"
+                                                    class="form-label mt-4"><b>Specialization</b></label>
+                                            </div>
+                                            <div class="col-sm-8 mt-3">
+                                                <input type="text" class="form-control" id="specializaiton"
+                                                    aria-describedby="specializaiton"
+                                                    placeholder="Physician Specialization" />
+                                            </div>
                                         </div>
                                     </div>
+                                </div>
 
-                                    <div class="form-group row">
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="address"
-                                                aria-describedby="address" placeholder="Complete Address" />
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input type="email" class="form-control" id="dob" aria-describedby="dob"
-                                                placeholder="Email" />
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input type="text" class="form-control" id="dob" aria-describedby="dob"
-                                                placeholder="Contact #" />
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input type="date" class="form-control" id="dob" aria-describedby="dob"
-                                                placeholder="Date of Birth" />
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="form-group row">
-                                        <div class="col-sm-6">
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-4">
-                                                    <label for="weight" class="form-label mt-4">Weight</label>
-                                                </div>
-                                                <div class="col-sm-8 mt-3">
-                                                    <input type="text" class="form-control" id="weight"
-                                                        aria-describedby="weight" placeholder="lbs" />
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-4">
-                                                    <label for="height" class="form-label mt-4">Height</label>
-                                                </div>
-                                                <div class="col-sm-8 mt-3">
-                                                    <input type="text" class="form-control" id="height"
-                                                        aria-describedby="height" placeholder="ft" />
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-4">
-                                                    <label for="temperature" class="form-label mt-4">Temperature</label>
-                                                </div>
-                                                <div class="col-sm-8 mt-3">
-                                                    <input type="text" class="form-control" id="temperature"
-                                                        aria-describedby="temperature" placeholder="Celcius" />
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-4">
-                                                    <label for="temperature" class="form-label mt-4">Blood
-                                                        Pressure</label>
-                                                </div>
-                                                <div class="col-sm-8 mt-3">
-                                                    <input type="text" class="form-control" id="temperature"
-                                                        aria-describedby="temperature" placeholder="Blood Pressure" />
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-4">
-                                                    <label for="temperature" class="form-label mt-4">HR</label>
-                                                </div>
-                                                <div class="col-sm-8 mt-3">
-                                                    <input type="text" class="form-control" id="temperature"
-                                                        aria-describedby="temperature" placeholder="HR" />
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-4">
-                                                    <label for="temperature" class="form-label mt-4">RR</label>
-                                                </div>
-                                                <div class="col-sm-8 mt-3">
-                                                    <input type="text" class="form-control" id="temperature"
-                                                        aria-describedby="temperature" placeholder="RR" />
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-4">
-                                                    <label for="temperature" class="form-label mt-4">Chief
-                                                        Complaint</label>
-                                                </div>
-                                                <div class="col-sm-8 mt-3">
-                                                    <textarea class="form-control" id="exampleTextarea" rows="3"
-                                                        placeholder="Chief Complaint"></textarea>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-
-                                        <div class="col-sm-6">
-                                            <div class="form-group row">
-                                                <div class="col-sm-4">
-                                                    <label for="weight" class="form-label mt-4">Vital Signs</label>
-                                                </div>
-                                                <div class="col-sm-8 mt-3">
-                                                    <input type="text" class="form-control" id="weight"
-                                                        aria-describedby="weight" placeholder="Vital Signs" />
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-4">
-                                                    <label for="height" class="form-label mt-4">Subjective</label>
-                                                </div>
-                                                <div class="col-sm-8 mt-3">
-                                                    <input type="text" class="form-control" id="height"
-                                                        aria-describedby="height" placeholder="Subjective" />
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-4">
-                                                    <label for="temperature" class="form-label mt-4">Objective</label>
-                                                </div>
-                                                <div class="col-sm-8 mt-3">
-                                                    <input type="text" class="form-control" id="temperature"
-                                                        aria-describedby="temperature" placeholder="Objective" />
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-4">
-                                                    <label for="temperature"
-                                                        class="form-label mt-4">Assessment/Diagnosis</label>
-                                                </div>
-                                                <div class="col-sm-8 mt-3">
-                                                    <textarea class="form-control" id="exampleTextarea" rows="3"
-                                                        placeholder="Assessment/Diagnosis"></textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-4">
-                                                    <label for="temperature" class="form-label mt-4">Plan</label>
-                                                </div>
-                                                <div class="col-sm-8 mt-3">
-                                                    <textarea class="form-control" id="exampleTextarea" rows="3"
-                                                        placeholder="Plan"></textarea>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </fieldset>
                             </form>
 
                         </section>

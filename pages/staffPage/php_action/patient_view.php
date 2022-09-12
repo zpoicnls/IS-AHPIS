@@ -12,7 +12,7 @@ $query = $conn->query($sql);
 while ($row = $query->fetch_assoc()) {
 
 
- $diagnosis = '<a type="button" class="btn fa fa-eye " title="View Diagnosis"  href="diagnosis_mngmnt.php?var_patient='.$row['Patient_ID'].'" id ="diagnosis"></a>';
+ $diagnosis = '<a type="button" class="btn fa fa-eye " title="View Diagnosis"  href="diagnosis_management.php?var_patient='.$row['Patient_ID'].'" id ="diagnosis"></a>';
  $actionButton = '
   <div class="btn-group" role="group" >
   <a type="button" class="btn btn-secondary btn-info" title="Edit" data-toggle="modal" data-target="#editAccountModal" ><i class="fa fa-edit" aria-hidden="true" ></i></a>

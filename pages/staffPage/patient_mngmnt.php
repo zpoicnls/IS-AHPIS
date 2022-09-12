@@ -44,7 +44,7 @@ include 'header.php';
                                 <table class="table table-bordered  table-responsive content  table-hover "
                                     id="managetable" width="100%" cellspacing="0">
                                     <thead>
-                                        <tr class="table-info table-success"><b>
+                                        <tr class="table-success"><b>
                                                 <th>Name</th>
                                                 <th>Age</th>
                                                 <th>Sex</th>
@@ -54,10 +54,9 @@ include 'header.php';
                                                 <th>Date of Birth</th>
                                                 <th>Record/Diagnosis</th>
                                                 <th>Action</th>
-                                            </b></tr>
+                                            </b>
+                                        </tr>
                                     </thead>
-
-
                                 </table>
                             </div>
                         </div>

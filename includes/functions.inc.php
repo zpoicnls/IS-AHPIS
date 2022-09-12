@@ -88,7 +88,7 @@ function loginUser($conn, $usersUid, $usersPwd)
                 $_SESSION['usersEmail'] = $user_data['usersEmail'];
                 $_SESSION['usersType'] = $user_data['usersType'];
                 $_SESSION['usersPwd'] = $user_data['usersPwd'];
-                header("location: ../pages/staffPage/patient_mngmnt.php");
+                header("location: ../pages/staffPage/staff_landing.php");
                 die;
             } elseif ($user_data['usersPwd'] === $usersPwd && $user_data['usersType'] === 'Office Staff') {
                 session_start();

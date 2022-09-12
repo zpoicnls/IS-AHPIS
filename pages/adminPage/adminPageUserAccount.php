@@ -92,6 +92,7 @@
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
+                                        <tbody>
                                         </tbody>
                                     </table>
                                 </div>
@@ -334,14 +335,14 @@
 
                             </div>
                             <div class="form-group">
-                            <label for="update_gender">Gender</label>
+                                <label for="update_gender">Gender</label>
 
-                            <select name="update_gender" id="update_gender" class="form-control" required>
+                                <select name="update_gender" id="update_gender" class="form-control" required>
 
-                                <option value="Female">Female</option>
-                                <option value="Male">Male</option>
-                            </select>
-                        </div>
+                                    <option value="Female">Female</option>
+                                    <option value="Male">Male</option>
+                                </select>
+                            </div>
                             <div class="edit-messages">
                             </div>
                         </div>
@@ -392,14 +393,16 @@
         <script src="../../vendor/chart.js/Chart.min.js"></script>
 
         <!-- Page level custom scripts -->
-        <script src="../../js/demo/chart-area-demo.js"></script>
-        <script src="../../js/demo/chart-pie-demo.js"></script>
+        <!-- <script src="../../js/demo/chart-area-demo.js"></script>
+        <script src="../../js/demo/chart-pie-demo.js"></script> -->
 
         <!-- Page level plugins -->
-        <script src="../../vendor/datatables/jquery.dataTables.min.js"></script>
+        <!-- <script src="../../vendor/datatables/jquery.dataTables.min.js"></script> -->
         <script src="../../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-        <script type="text/javascript" src="../../js/admin_JS/adminUser.js"></script>
+        <!-- <script type="text/javascript" src="../../js/admin_JS/adminUser.js"></script> -->
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js">
+        </script>
 </body>
 
 </html>
