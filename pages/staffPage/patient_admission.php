@@ -272,6 +272,33 @@ include 'db_connect.php';
 
                                     </div>
                                 </div>
+                                <hr>
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label for="physician" class="form-label mt-4"><b>Pysician</b></label>
+                                            </div>
+                                            <div class="col-sm-8 mt-3">
+                                                <input type="text" class="form-control" id="physician"
+                                                    aria-describedby="physician" placeholder="Attending Physician" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label for="specializaiton"
+                                                    class="form-label mt-4"><b>Specialization</b></label>
+                                            </div>
+                                            <div class="col-sm-8 mt-3">
+                                                <input type="text" class="form-control" id="specializaiton"
+                                                    aria-describedby="specializaiton"
+                                                    placeholder="Physician Specialization" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                             </form>
 

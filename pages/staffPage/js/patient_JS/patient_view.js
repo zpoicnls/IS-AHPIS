@@ -143,3 +143,8 @@ function remove_patient(Patient_ID=null) {
     alert('Error: Refresh the page again');
   }
 }
+
+$('#bologna-list a').on('click', function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
