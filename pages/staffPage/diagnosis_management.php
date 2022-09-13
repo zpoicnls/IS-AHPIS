@@ -230,7 +230,8 @@ include 'header.php';
                                                         <td>Cardiologist</td>
                                                         <td>Trauma</td>
                                                         <td>Jan. 1, 2000</td>
-                                                        <td><button class="btn btn-primary btn-sm"></button></td>
+                                                        <td><a href="patientFullInformation.php"
+                                                                class="btn fa fa-eye btn-sm"></a></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -439,6 +440,9 @@ include 'header.php';
                     </section>
                 </div>
                 <!-- End of Main Content -->
+                <!-- Footer -->
+                <?php include 'footer.php'; ?>
+                <!-- End of Footer -->
 
                 <!-- Scroll to Top Button-->
                 <a class="scroll-to-top rounded" href="#page-top">
@@ -465,4 +469,4 @@ include 'header.php';
                 <script type="text/javascript" src="js/patient_JS/patient_view.js"></script>
 </body>
 
-</html>s
+</html>
