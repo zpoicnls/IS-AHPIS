@@ -56,6 +56,22 @@ include 'db_connect.php';
                                     <a href="#" class="d-none d-sm-inline-block btn btn-l btn-primary shadow-sm"><i
                                             class="fas fa-download fa-sm text-white-50"></i> Register</a>
                                 </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-2">
+                                                <label for="date" class="form-label mt-4"><b>Date</b></label>
+                                            </div>
+                                            <div class="col-sm-4 mt-3">
+                                                <input type="date" class="form-control" id="date"
+                                                    aria-describedby="date" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="form-group row">
                                     <div class="col-sm-9">
                                         <label for="fullName" class="form-label mt-4"><b>Full Name</b></label>

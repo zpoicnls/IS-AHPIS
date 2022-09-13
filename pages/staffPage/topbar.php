@@ -25,7 +25,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-1 d-none d-lg-inline text-gray-600 small">
-                                    <h3>Welcome Admin</h3>
+                                    <h3>Welcome Nurse/Staff</h3>
                                 </span>
                             </a>
                         </li>
