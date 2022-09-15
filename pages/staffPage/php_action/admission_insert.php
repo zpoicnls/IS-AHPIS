@@ -5,20 +5,37 @@ require_once 'db_connect.php';
 //if form is submitted
 if ($_POST) {
       
-  
-  
+    // Declare models for patient_tbl
+    $date = $_POST['date'];
     $fname = $_POST['fname']; 
     $lname = $_POST['lname'];
     $mname = $_POST['mname']; 
-    $occupation = $_POST['occupation'];   
+    $age = $_POST['age'];
+    $sex = $_POST['sex'];
+    // $occupation = $_POST['occupation'];   
     $address = $_POST['address'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-     $bday = $_POST['bday'];
-    $age = $_POST['age'];
-     $gender = $_POST['gender'];
+    $bday = $_POST['bday'];
+
+    // Declare models for diagnosis_tbl
+    $date = $_POST['date'];
+    $weight = $_POST['weight'];
+    $height = $_POST['height'];
+    $temperature = $_POST['temperature'];
+    $blood = $_POST['blood'];
+    $hr = $_POST['hr'];
+    $rr = $_POST['rr'];
+    $chiefComplaint = $_POST['chiefComplaint'];
+    $vital = $_POST['vital'];
+    $subjective = $_POST['subjective'];
+    $objective = $_POST['objective'];
+    $prescription = $_POST['prescription'];
+    $plan = $_POST['plan'];
+    $physician = $_POST['physician'];
+    $specialization = $_POST['specialization'];
     $diagnosis = $_POST['diagnosis'];
-    $year = $_POST['year'];
+
     $select = "SELECT * FROM patient_tbl WHERE fname = '$fname' and middle_name = '$mname' and lname = '$lname'";
 
     $result = $conn->query($select);
@@ -36,7 +53,7 @@ if ($_POST) {
             /*if doesnt exist*/
            else{
 
-            $sql = "INSERT INTO patient_tbl (fname, lname, middle_name, occupation, address, email, phone, bday, age, gender) VALUES ('$fname', '$lname', '$mname', '$occupation', '$address', '$email', '$phone', '$bday', '$age', '$gender')";
+            $sql = "INSERT INTO patient_tbl (fname, lname, middle_name, address, email, phone, bday, age, sex) VALUES ('$fname', '$lname', '$mname', '$address', '$email', '$phone', '$bday', '$age', '$sex')";
                 $insert_query = $conn->query($sql); 
                 
 
@@ -45,7 +62,7 @@ if ($_POST) {
             $patient_id = mysqli_insert_id($conn);
              
 
-            $sql_diagnosis = "INSERT INTO diagnosis_tbl (Diagnosis, year) VALUES ('$diagnosis', '$year')";
+            $sql_diagnosis = "INSERT INTO diagnosis_tbl (Diagnosis, dateToday , weight , height, temperature, blood, HR , RR , chief_complaint, physician, vital_sign, subjective, objective, prescription, specialization, plan) VALUES ('$diagnosis', '$date', '$weight', '$height' , '$temperature', '$blood', '$hr', '$rr', '$chiefComplaint', '$vital', '$subjective', '$objective', '$prescription', '$plan', '$physician', '$specialization' )";
              $insertdiagnosis_query = $conn->query($sql_diagnosis);
             
 

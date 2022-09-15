@@ -49,12 +49,13 @@ include 'db_connect.php';
 
                         <section class="page-section" id="patient_admission">
 
-                            <form>
+                            <form action="PHP_Action/admission_insert.php" method="POST" id="createRecordForm">
                                 <!-- Page Heading -->
                                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                                     <h1 class="h3 mb-0 text-gray-800">Add new patient</h1>
-                                    <a href="#" class="d-none d-sm-inline-block btn btn-l btn-primary shadow-sm"><i
-                                            class="fas fa-download fa-sm text-white-50"></i> Register</a>
+                                    <!-- <a href="#" class="d-none d-sm-inline-block btn btn-l btn-primary shadow-sm"><i
+                                            class="fas fa-download fa-sm text-white-50"></i> Register</a> -->
+                                            <button type="submit" name="submit" id="submit" class="btn btn-success" >Register</button>
                                 </div>
 
                                 <div class="form-group row">
@@ -65,7 +66,7 @@ include 'db_connect.php';
                                                 <label for="date" class="form-label mt-4"><b>Date</b></label>
                                             </div>
                                             <div class="col-sm-4 mt-3">
-                                                <input type="date" class="form-control" id="date"
+                                                <input type="date" name="date" class="form-control" id="date"
                                                     aria-describedby="date" />
                                             </div>
                                         </div>
@@ -86,23 +87,23 @@ include 'db_connect.php';
 
                                 <div class="form-group row">
                                     <div class="col-sm-3">
-                                        <input type="text" class="form-control" id="lastName"
+                                        <input type="text" name="lname" class="form-control" id="lastName"
                                             aria-describedby="lastName" placeholder="Surname" />
                                     </div>
                                     <div class="col-sm-3">
-                                        <input type="text" class="form-control" id="firstName"
+                                        <input type="text" name="fname" class="form-control" id="firstName"
                                             aria-describedby="firstName" placeholder="Given Name" />
                                     </div>
                                     <div class="col-sm-3">
-                                        <input type="text" class="form-control" id="middleName"
+                                        <input type="text" name="mname" class="form-control" id="middleName"
                                             aria-describedby="middleName" placeholder="Middle Name" />
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="text" class="form-control" id="age" aria-describedby="age"
+                                        <input type="text" class="form-control" name="age"  id="age" aria-describedby="age"
                                             placeholder="Age" />
                                     </div>
                                     <div class="col-sm-1">
-                                        <input type="text" class="form-control" id="sex" aria-describedby="sex"
+                                        <input type="text" class="form-control" name="sex" id="sex" aria-describedby="sex"
                                             placeholder="M or F" />
                                     </div>
                                 </div>
@@ -124,19 +125,19 @@ include 'db_connect.php';
 
                                 <div class="form-group row">
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="address" aria-describedby="address"
+                                        <input type="text" name="address" class="form-control" id="address" aria-describedby="address"
                                             placeholder="Complete Address" />
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="email" class="form-control" id="email" aria-describedby="email"
+                                        <input type="email" name="email" class="form-control" id="email" aria-describedby="email"
                                             placeholder="Email Address" />
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="text" class="form-control" id="contact" aria-describedby="contact"
+                                        <input type="text" name="phone" class="form-control" id="contact" aria-describedby="contact"
                                             placeholder="Cellphone #" />
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="date" class="form-control" id="dob" aria-describedby="dob"
+                                        <input type="date" name="bday" class="form-control" id="dob" aria-describedby="dob"
                                             placeholder="Date of Birth" />
                                     </div>
                                 </div>
@@ -149,7 +150,7 @@ include 'db_connect.php';
                                                 <label for="weight" class="form-label mt-4"><b>Weight</b></label>
                                             </div>
                                             <div class="col-sm-8 mt-3">
-                                                <input type="text" class="form-control" id="weight"
+                                                <input type="text" name="weight" class="form-control" id="weight"
                                                     aria-describedby="weight" placeholder="lbs" />
                                             </div>
                                         </div>
@@ -159,7 +160,7 @@ include 'db_connect.php';
                                                 <label for="height" class="form-label mt-4"><b>Height</b></label>
                                             </div>
                                             <div class="col-sm-8 mt-3">
-                                                <input type="text" class="form-control" id="height"
+                                                <input type="text" name="height" class="form-control" id="height"
                                                     aria-describedby="height" placeholder="ft" />
                                             </div>
                                         </div>
@@ -170,7 +171,7 @@ include 'db_connect.php';
                                                     class="form-label mt-4"><b>Temperature</b></label>
                                             </div>
                                             <div class="col-sm-8 mt-3">
-                                                <input type="text" class="form-control" id="temperature"
+                                                <input type="text" name="temperature" class="form-control" id="temperature"
                                                     aria-describedby="temperature" placeholder="Celcius" />
                                             </div>
                                         </div>
@@ -181,7 +182,7 @@ include 'db_connect.php';
                                                         Pressure</b></label>
                                             </div>
                                             <div class="col-sm-8 mt-3">
-                                                <input type="text" class="form-control" id="bp" aria-describedby="bp"
+                                                <input type="text" name="blood" class="form-control" id="bp" aria-describedby="bp"
                                                     placeholder="Blood Pressure" />
                                             </div>
                                         </div>
@@ -191,7 +192,7 @@ include 'db_connect.php';
                                                 <label for="hr" class="form-label mt-4"><b>HR</b></label>
                                             </div>
                                             <div class="col-sm-8 mt-3">
-                                                <input type="text" class="form-control" id="hr" aria-describedby="hr"
+                                                <input type="text" name="hr" class="form-control" id="hr" aria-describedby="hr"
                                                     placeholder="HR" />
                                             </div>
                                         </div>
@@ -201,7 +202,7 @@ include 'db_connect.php';
                                                 <label for="rr" class="form-label mt-4"><b>RR</b></label>
                                             </div>
                                             <div class="col-sm-8 mt-3">
-                                                <input type="text" class="form-control" id="rr" aria-describedby="rr"
+                                                <input type="text" name="rr" class="form-control" id="rr" aria-describedby="rr"
                                                     placeholder="RR" />
                                             </div>
                                         </div>
@@ -212,7 +213,7 @@ include 'db_connect.php';
                                                         Complaint</b></label>
                                             </div>
                                             <div class="col-sm-8 mt-3">
-                                                <textarea class="form-control" id="chiefComplaint" rows="3"
+                                                <textarea class="form-control" name="chiefComplaint" id="chiefComplaint" rows="3"
                                                     placeholder="Chief Complaint"></textarea>
 
                                             </div>
@@ -228,7 +229,7 @@ include 'db_connect.php';
                                                         Signs</b></label>
                                             </div>
                                             <div class="col-sm-8 mt-3">
-                                                <input type="text" class="form-control" id="vital"
+                                                <input type="text" name="vital" class="form-control" id="vital"
                                                     aria-describedby="vital" placeholder="Vital Signs" />
                                             </div>
                                         </div>
@@ -239,7 +240,7 @@ include 'db_connect.php';
                                                     class="form-label mt-4"><b>Subjective</b></label>
                                             </div>
                                             <div class="col-sm-8 mt-3">
-                                                <input type="text" class="form-control" id="subjective"
+                                                <input type="text" name="subjective" class="form-control" id="subjective"
                                                     aria-describedby="subjective" placeholder="Subjective" />
                                             </div>
                                         </div>
@@ -249,7 +250,7 @@ include 'db_connect.php';
                                                 <label for="objective" class="form-label mt-4"><b>Objective</b></label>
                                             </div>
                                             <div class="col-sm-8 mt-3">
-                                                <input type="text" class="form-control" id="objective"
+                                                <input type="text" name="objective" class="form-control" id="objective"
                                                     aria-describedby="objective" placeholder="Objective" />
                                             </div>
                                         </div>
@@ -260,7 +261,7 @@ include 'db_connect.php';
                                                     class="form-label mt-4"><b>Assessment/Diagnosis</b></label>
                                             </div>
                                             <div class="col-sm-8 mt-3">
-                                                <textarea class="form-control" id="diagnosis" rows="3"
+                                                <textarea class="form-control" name="diagnosis" id="diagnosis" rows="3"
                                                     placeholder="Assessment/Diagnosis"></textarea>
                                             </div>
                                         </div>
@@ -271,7 +272,7 @@ include 'db_connect.php';
                                                     class="form-label mt-4"><b>Prescription</b></label>
                                             </div>
                                             <div class="col-sm-8 mt-3">
-                                                <textarea class="form-control" id="prescription" rows="3"
+                                                <textarea class="form-control" name="prescription" id="prescription" rows="3"
                                                     placeholder="Prescription"></textarea>
                                             </div>
                                         </div>
@@ -281,7 +282,7 @@ include 'db_connect.php';
                                                 <label for="plan" class="form-label mt-4"><b>Plan</b></label>
                                             </div>
                                             <div class="col-sm-8 mt-3">
-                                                <textarea class="form-control" id="plan" rows="3"
+                                                <textarea class="form-control" name="plan" id="plan" rows="3"
                                                     placeholder="Plan"></textarea>
                                             </div>
                                         </div>
@@ -296,7 +297,7 @@ include 'db_connect.php';
                                                 <label for="physician" class="form-label mt-4"><b>Pysician</b></label>
                                             </div>
                                             <div class="col-sm-8 mt-3">
-                                                <input type="text" class="form-control" id="physician"
+                                                <input type="text" name="physician" class="form-control" id="physician"
                                                     aria-describedby="physician" placeholder="Attending Physician" />
                                             </div>
                                         </div>
@@ -308,7 +309,7 @@ include 'db_connect.php';
                                                     class="form-label mt-4"><b>Specialization</b></label>
                                             </div>
                                             <div class="col-sm-8 mt-3">
-                                                <input type="text" class="form-control" id="specializaiton"
+                                                <input type="text" name="specialization" class="form-control" id="specializaiton"
                                                     aria-describedby="specializaiton"
                                                     placeholder="Physician Specialization" />
                                             </div>
