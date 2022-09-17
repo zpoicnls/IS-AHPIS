@@ -6,7 +6,7 @@ require_once '../../../includes/dbh.inc.php';
 
 $output = array('data' => array());
 
-$sql = "SELECT usersId, usersLName, usersFName, usersMName, usersEmail,usersType,usersUid , usersPwd, usersGender FROM tbl_users";
+$sql = "SELECT usersId, usersLName, usersFName, usersMName, usersEmail, usersGender, usersType , usersUid, usersPwd FROM tbl_users";
 $query = $conn->query($sql);
 
 while ($row = $query->fetch_assoc()) {

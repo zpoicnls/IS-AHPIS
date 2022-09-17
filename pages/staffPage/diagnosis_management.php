@@ -1,5 +1,113 @@
 <?php
 include 'db_connect.php';
+$Patient_ID = $_GET['var_patient'];
+
+
+$Patientquery = "select CONCAT(fname,_utf8 ' ', middle_name, _utf8 ' ', lname) AS name,bday,Patient_ID ,age,gender,bday,phone,email,address from patient_tbl where Patient_ID = '$Patient_ID'";
+$queryP = $conn->query($Patientquery);
+$row = $queryP->fetch_assoc();
+
+$diagquery = "SELECT  d.diagnosis,d.date,d.Diagnosis_ID,pd.Patient_ID,d.weight,d.height,temperature,bp,hr,rr,
+chief_complaint,physician,vital_sign,subjective,objective,prescription,specialization,bloodtype,allergies FROM diagnosis_tbl d join tbl_patient_diagnosis pd on pd.Diagnosis_ID=d.Diagnosis_ID where pd.Patient_ID = '$Patient_ID'";
+$querydiag = $conn->query($diagquery);
+$row1 = $querydiag->fetch_assoc();
+
+$diagquery2 = "SELECT  max(d.date) as last_visit FROM diagnosis_tbl d join tbl_patient_diagnosis pd on pd.Diagnosis_ID=d.Diagnosis_ID where pd.Patient_ID = '$Patient_ID'";
+$querydiag2 = $conn->query($diagquery2);
+$row2 = $querydiag2->fetch_assoc();
+
+
+if($_POST)
+{
+    $valueToSearch = $_POST['valueToSearch'];
+    // search in all table columns
+    // using concat mysql function
+    $query = "SELECT  d.Diagnosis,d.year,d.Diagnosis_ID,pd.Patient_ID,d.weight,d.height,temperature,bp,HR,RR,
+    chief_complaint,physician,vital_sign,subjective,objective,prescription,specialization,bloodtype,allergies FROM diagnosis_tbl d join tbl_patient_diagnosis pd on pd.Diagnosis_ID=d.Diagnosis_ID where  CONCAT(`Diagnosis`, `year`) LIKE '%$valueToSearch%' ";
+    $search_result = filterTable($query);
+    
+}
+else {
+
+
+  
+    /*for paging*/
+    /*fetching data*/
+   $sql="SELECT  d.diagnosis,d.date,d.Diagnosis_ID,pd.Patient_ID,d.weight,d.height,temperature,bp,hr,rr,
+   chief_complaint,physician,vital_sign,subjective,objective,prescription,specialization,bloodtype,allergies FROM diagnosis_tbl d join tbl_patient_diagnosis pd on pd.Diagnosis_ID=d.Diagnosis_ID where pd.Patient_ID = '$Patient_ID'";
+   $result = $conn->query($sql);
+  
+  $count=mysqli_num_rows($result);
+  $num = $count/5; 
+  $lastpage= ceil($num); /*to avoid decimal*/
+  $perpage=5; /*number of data per page */
+  
+  /*getting current page*/
+  if(isset($_GET['currentpage'])&& is_numeric($_GET['currentpage'])){
+  
+    $currentpage=(int) $_GET['currentpage'];
+  }else{
+    /*default page number*/
+    $currentpage=1;
+  }
+  
+  /*if currentpage greater than last page*/
+  
+  if($currentpage > $lastpage){
+    $currentpage=1;
+  }
+     /*set offset or list per page*/
+     $offset = ($currentpage * 5) - $perpage;
+     
+  
+      $query = "SELECT  d.diagnosis,d.date,d.Diagnosis_ID,pd.Patient_ID,d.weight,d.height,temperature,bp,hr,rr,
+      chief_complaint,physician,vital_sign,subjective,objective,prescription,specialization,bloodtype,allergies FROM diagnosis_tbl d join tbl_patient_diagnosis pd on pd.Diagnosis_ID=d.Diagnosis_ID where pd.Patient_ID = '$Patient_ID' limit $offset,$perpage";
+      $search_result = filterTable($query);
+    
+  }
+  
+  
+  function filterTable($query)
+  {
+      $connect = mysqli_connect("localhost", "root", "", "prasis");
+      $filter_Result = mysqli_query($connect, $query);
+      return $filter_Result;
+  }
+  
+  
+   /*for paging*/
+   $sql="SELECT  d.diagnosis,d.date,d.Diagnosis_ID,pd.Patient_ID,d.weight,d.height,temperature,bp,hr,rr,
+   chief_complaint,physician,vital_sign,subjective,objective,prescription,specialization,bloodtype,allergies FROM diagnosis_tbl d join tbl_patient_diagnosis pd on pd.Diagnosis_ID=d.Diagnosis_ID where pd.Patient_ID = '$Patient_ID'";
+   $result = $conn->query($sql);
+  
+  $count=mysqli_num_rows($result);
+  $num = $count/5;
+  $lastpage= ceil($num);
+  $perpage=5;
+  
+  if(isset($_GET['currentpage'])&& is_numeric($_GET['currentpage'])){
+  
+    $currentpage=(int) $_GET['currentpage'];
+  }else{
+    /*default page num*/
+    $currentpage=1;
+  }
+  
+  /*if currentpage greater that total*/
+  
+  if($currentpage > $lastpage){
+    $currentpage=1;
+  }
+     /*set offset or list per page*/
+     $offset = ($currentpage * 5) - $perpage;
+     
+  
+  
+   $pagination ="";
+      
+                      $pagination .= "<i class='details' style='margin-top:2px'>Page $currentpage of $lastpage</i>";
+  
+  
 ?>
 
 <!DOCTYPE html>
@@ -37,134 +145,108 @@ include 'header.php';
                         <div class="container py-4">
                             <div class="row">
                                 <div class="col-lg-3">
-                                    <div class="card shadow mb-4" style="height:220px">
+                                    <div class="card shadow mb-4" style="height:260px">
                                         <div class="card-body text-center">
                                             <img src="../../assets/img/undraw_profile.svg" alt="avatar"
                                                 class="rounded-circle img-fluid" style="width: 150px;" />
                                             <a href="#">
                                                 <h6 class="my-3"><i> Change Profile Image </i></h6>
                                             </a>
-                                            <h3>
-                                                <p class="mb-0">Juan Tamad</p>
-                                            </h3>
+                                            <h5>
+                                                <p class="mb-0"><?php echo $row['name'];?></p>
+                                            </h5>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-5">
-                                    <div class="card shadow mb-4 bg-gradient-success" style="height:220px">
+                                    <div class="card shadow mb-4 bg-gradient-success" style="height:260px">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <p class="mb-0" style="color:white;">Age</p>
+                                                    <p class="mb-0" style="color:white;">Age:
+                                                    </p>
                                                 </div>
-                                                <div class="col-sm-3">
-                                                    <?php
-                                          // if (isset($_SESSION['usersUid'])) {
-                                          //     echo "<p class='text-muted mb-0'>".$_SESSION['usersFName']." ".$_SESSION['usersMName']." ".$_SESSION['usersLName']."</p>";
-                                          // }
-                                      ?>
+                                                <div class="col-sm-9" style="color:white; font-weight:bold">
+                                                    <?php echo $row['age'];?>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <p class="mb-0" style="color:white;">Sex</p>
+                                                    <p class="mb-0" style="color:white;">Sex:
+                                                    </p>
                                                 </div>
-                                                <div class="col-sm-9">
-                                                    <?php
-                                        //  if (isset($_SESSION['usersUid'])) {
-                                        // echo "<p class='text-muted mb-0'>".$_SESSION['usersEmail']."</p>";
-                                        // } 
-                                        ?>
+                                                <div class="col-sm-9" style="color:white; font-weight:bold">
+                                                    <?php echo $row['gender'];?>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <p class="mb-0" style="color:white;">Date of Birth</p>
+                                                    <p class="mb-0" style="color:white;">Birthday:
+                                                    </p>
+
                                                 </div>
-                                                <div class="col-sm-9">
-                                                    <?php 
-                                        // if (isset($_SESSION['usersUid'])) {
-                                        //       echo "<p class='text-muted mb-0'>".$_SESSION['usersUid']."</p>";
-                                        //       }
-                                              ?>
+                                                <div class="col-sm-9" style="color:white; font-weight:bold">
+                                                    <?php echo $row['bday'];?>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <p class="mb-0" style="color:white;">Contact #</p>
+                                                    <p class="mb-0" style="color:white;">Contact #:
+                                                    </p>
                                                 </div>
-                                                <div class="col-sm-3">
-                                                    <?php
-                                          // if (isset($_SESSION['usersUid'])) {
-                                          //     echo "<p class='text-muted mb-0' type='password'>".$_SESSION['usersPwd']."</p>";
-                                          // }
-                                      ?>
+                                                <div class="col-sm-9" style="color:white; font-weight:bold">
+                                                    <?php echo $row['phone'];?>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <p class="mb-0" style="color:white;">Email</p>
+                                                    <p class="mb-0" style="color:white;">Email
+                                                    </p>
                                                 </div>
-                                                <div class="col-sm-3">
-                                                    <?php
-                                          // if (isset($_SESSION['usersUid'])) {
-                                          //     echo "<p class='text-muted mb-0' type='password'>".$_SESSION['usersPwd']."</p>";
-                                          // }
-                                      ?>
+                                                <div class="col-sm-9" style="color:white; font-weight:bold">
+                                                    <?php echo $row['email'];?>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <p class="mb-0" style="color:white;">Address</p>
+                                                    <p class="mb-0" style="color:white;">Address:
+                                                    </p>
                                                 </div>
-                                                <div class="col-sm-3">
-                                                    <?php
-                                          // if (isset($_SESSION['usersUid'])) {
-                                          //     echo "<p class='text-muted mb-0' type='password'>".$_SESSION['usersPwd']."</p>";
-                                          // }
-                                      ?>
+                                                <div class="col-sm-9" style="color:white; font-weight:bold">
+                                                    <?php echo $row['address'];?>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
-                                    <div class="card shadow mb-4 bg-gradient-success" style="height:220px">
+                                    <div class="card shadow mb-4 bg-gradient-success" style="height:260px">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-sm-4">
-                                                    <p class="mb-0" style="color:white;">Blood Type</p>
+                                                    <p class="mb-0" style="color:white;">Blood Type:
+                                                    </p>
                                                 </div>
-                                                <div class="col-sm-8">
-                                                    <?php
-                                          // if (isset($_SESSION['usersUid'])) {
-                                          //     echo "<p class='text-muted mb-0'>".$_SESSION['usersFName']." ".$_SESSION['usersMName']." ".$_SESSION['usersLName']."</p>";
-                                          // }
-                                      ?>
+                                                <div class="col-sm-8" style="color:white; font-weight:bold">
+                                                    <?php echo $row1['bloodtype'];?>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-4">
-                                                    <p class="mb-0" style="color:white;">Allergies</p>
+                                                    <p class="mb-0" style="color:white;">Allergies:
+                                                    </p>
                                                 </div>
-                                                <div class="col-sm-8">
-                                                    <?php 
-                                        // if (isset($_SESSION['usersUid'])) {
-                                        // echo "<p class='text-muted mb-0'>".$_SESSION['usersEmail']."</p>";
-                                        // }
-                                        ?>
+                                                <div class="col-sm-8" style="color:white; font-weight:bold">
+                                                    <?php echo $row1['allergies'];?>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-4">
-                                                    <p class="mb-0" style="color:white;">Last Visit</p>
+                                                    <p class="mb-0" style="color:white;">Last Visit:
+                                                    </p>
                                                 </div>
-                                                <div class="col-sm-8">
-                                                    <?php 
-                                        // if (isset($_SESSION['usersUid'])) {
-                                        //       echo "<p class='text-muted mb-0'>".$_SESSION['usersUid']."</p>";
-                                        //       }
-                                              ?>
+                                                <div class="col-sm-8" style="color:white; font-weight:bold">
+                                                    <?php echo $row2['last_visit'];?>
                                                 </div>
                                             </div>
                                         </div>
@@ -215,32 +297,83 @@ include 'header.php';
                                                         <th>View</th>
                                                     </tr>
                                                 </thead>
-                                                <!-- <tfoot>
-                    <tr>
-                      <th>Physician</th>
-                      <th>Specialization</th>
-                      <th>Diagnosis</th>
-                      <th>Date</th>
-                      <th>View Information</th>
-                    </tr>
-                  </tfoot> -->
+
                                                 <tbody>
+                                                    <?php while($row = mysqli_fetch_array($search_result)){;
+                                                    $action ='<div class="btn-group" role="group" >
+  <a type="button" class="btn fa fa-eye btn-sm" title="Edit" href ="patientFullInformation.php?var_patient='.$row1['Patient_ID'].'&var_diagnose='.$row1['Diagnosis_ID'].'"></a>
+     ';?>
                                                     <tr>
-                                                        <td>Dr. Junieboi</td>
-                                                        <td>Cardiologist</td>
-                                                        <td>Trauma</td>
-                                                        <td>Jan. 1, 2000</td>
-                                                        <td><a href="patientFullInformation.php"
-                                                                class="btn fa fa-eye btn-sm"></a></td>
+                                                        <td><?php echo $row['physician'];?></td>
+                                                        <td><?php echo $row['specialization'];?></td>
+                                                        <td><?php echo $row['diagnosis'];?></td>
+                                                        <td><?php echo $row['date'];?></td>
+                                                        <td><?php echo $action; ?></a></td>
                                                     </tr>
+                                                    <?php };  ?>
                                                 </tbody>
                                             </table>
+
+                                            <div class="col-md-6 pagination ">
+                                                <?php
+
+echo $pagination;
+
+?>
+                                            </div>
+
+                                            <div class="col-md-6 paging">
+                                                <?php
+
+  /*range of num links to show*/
+    $range =3 ;
+    // if not on page 1, don't show back links
+if ($currentpage > 1) {
+   // show << link to go back to page 1
+   echo " <a href='{$_SERVER['PHP_SELF']}?currentpage=1 & var_patient=$Patient_ID'><<</a> ";
+   // get previous page num
+   $prevpage = $currentpage - 1;
+   // show < link to go back to 1 page
+   echo " <a href='{$_SERVER['PHP_SELF']}?currentpage=$prevpage & var_patient=$Patient_ID'><</a> ";
+} // end if 
+// loop to show links to range of pages around current page
+for ($x = ($currentpage - $range); $x < (($currentpage + $range) + 1); $x++) {
+   // if it's a valid page number...
+   if (($x > 0) && ($x <= $lastpage)) {
+      // if we're on current page...
+      if ($x == $currentpage) {
+         // 'highlight' it but don't make a link
+         echo " <i>$x</i> ";
+      // if not current page...
+      } else {
+         // make it a link
+         echo " <a href='{$_SERVER['PHP_SELF']}?currentpage=$x & var_patient=$Patient_ID'>$x</a> ";
+      } // end else
+   } // end if 
+} // end for
+                 
+// if not on last page, show forward and last page links        
+if ($currentpage != $lastpage) {
+   // get next page
+   $nextpage = $currentpage + 1;
+    // echo forward link for next page 
+   echo " <a href='{$_SERVER['PHP_SELF']}?currentpage=$nextpage & var_patient=$Patient_ID'>></a> ";
+   // echo forward link for lastpage
+   echo " <a href='{$_SERVER['PHP_SELF']}?currentpage=$lastpage & var_patient=$Patient_ID'>>></a> ";
+} // end if
+/****** end build pagination links ******/
+
+
+
+?>
+
+                                            </div>
                                         </div>
                                     </div>
 
                                     <div class="tab-pane" id="history" role="tabpanel" aria-labelledby="history-tab">
                                         <!-- New Patient Check Up Form -->
-                                        <form id="checkupForm">
+                                        <form action="php_action/add_diagnosis.php" method="POST">
                                             <fieldset>
 
 
@@ -249,11 +382,14 @@ include 'header.php';
                                                     <div class="col-sm-6">
                                                         <div class="form-group row">
                                                             <div class="col-sm-4">
-                                                                <label for="weight" class="form-label mt-4">Date</label>
+                                                                <label for="weight" class="form-label mt-4"
+                                                                    id="year">Date</label>
+
                                                             </div>
                                                             <div class="col-sm-8 mt-3">
-                                                                <input type="date" class="form-control" id="weight"
-                                                                    aria-describedby="weight" placeholder="lbs" />
+                                                                <input type="date" class="form-control" id="year"
+                                                                    name="year" aria-describedby="year"
+                                                                    placeholder="lbs" />
                                                             </div>
                                                         </div>
 
@@ -264,7 +400,8 @@ include 'header.php';
                                                             </div>
                                                             <div class="col-sm-8 mt-3">
                                                                 <input type="text" class="form-control" id="weight"
-                                                                    aria-describedby="weight" placeholder="lbs" />
+                                                                    name="weight" aria-describedby="weight"
+                                                                    placeholder="kl" />
                                                             </div>
                                                         </div>
 
@@ -274,8 +411,9 @@ include 'header.php';
                                                                     class="form-label mt-4">Height</label>
                                                             </div>
                                                             <div class="col-sm-8 mt-3">
-                                                                <input type="text" class="form-control" id="height"
-                                                                    aria-describedby="height" placeholder="ft" />
+                                                                <input type="text" class="form-control" name="height"
+                                                                    id="height" aria-describedby="height"
+                                                                    placeholder="cm" />
                                                             </div>
                                                         </div>
 
@@ -285,20 +423,23 @@ include 'header.php';
                                                                     class="form-label mt-4">Temperature</label>
                                                             </div>
                                                             <div class="col-sm-8 mt-3">
-                                                                <input type="text" class="form-control" id="temperature"
+                                                                <input type="text" class="form-control"
+                                                                    name="temperature" id="temperature"
                                                                     aria-describedby="temperature"
                                                                     placeholder="Celcius" />
                                                             </div>
                                                         </div>
-
+                                                        <input type="hidden" class="form-control"
+                                                            value="<?php echo $Patient_ID ?>" id="patientid"
+                                                            name="patientid" />
                                                         <div class="form-group row">
                                                             <div class="col-sm-4">
                                                                 <label for="bp" class="form-label mt-4">Blood
                                                                     Pressure</label>
                                                             </div>
                                                             <div class="col-sm-8 mt-3">
-                                                                <input type="text" class="form-control" id="bp"
-                                                                    aria-describedby="bp"
+                                                                <input type="text" class="form-control" id="BP"
+                                                                    aria-describedby="bp" name="BP"
                                                                     placeholder="Blood Pressure" />
                                                             </div>
                                                         </div>
@@ -308,8 +449,8 @@ include 'header.php';
                                                                 <label for="hr" class="form-label mt-4">HR</label>
                                                             </div>
                                                             <div class="col-sm-8 mt-3">
-                                                                <input type="text" class="form-control" id="hr"
-                                                                    aria-describedby="hr" placeholder="HR" />
+                                                                <input type="text" class="form-control" id="HR"
+                                                                    name="HR" aria-describedby="hr" placeholder="HR" />
                                                             </div>
                                                         </div>
 
@@ -319,7 +460,7 @@ include 'header.php';
                                                             </div>
                                                             <div class="col-sm-8 mt-3">
                                                                 <input type="text" class="form-control" id="RR"
-                                                                    aria-describedby="RR" placeholder="RR" />
+                                                                    name="RR" aria-describedby="RR" placeholder="RR" />
                                                             </div>
                                                         </div>
 
@@ -329,7 +470,7 @@ include 'header.php';
                                                                     Complaint</label>
                                                             </div>
                                                             <div class="col-sm-8 mt-3">
-                                                                <textarea class="form-control" id="exampleTextarea"
+                                                                <textarea class="form-control" id="cc" name="cc"
                                                                     rows="3" placeholder="Chief Complaint"></textarea>
 
                                                             </div>
@@ -345,8 +486,9 @@ include 'header.php';
                                                                     Signs</label>
                                                             </div>
                                                             <div class="col-sm-8 mt-3">
-                                                                <input type="text" class="form-control" id="vs"
-                                                                    aria-describedby="vs" placeholder="Vital Signs" />
+                                                                <input type="text" class="form-control" id="vital_sign"
+                                                                    aria-describedby="vs" name="vital_sign"
+                                                                    placeholder="Vital Signs" />
                                                             </div>
                                                         </div>
 
@@ -356,7 +498,8 @@ include 'header.php';
                                                                     class="form-label mt-4">Subjective</label>
                                                             </div>
                                                             <div class="col-sm-8 mt-3">
-                                                                <input type="text" class="form-control" id="subj"
+                                                                <input type="text" class="form-control"
+                                                                    name="subjective" id="subjective"
                                                                     aria-describedby="subj" placeholder="Subjective" />
                                                             </div>
                                                         </div>
@@ -367,8 +510,9 @@ include 'header.php';
                                                                     class="form-label mt-4">Objective</label>
                                                             </div>
                                                             <div class="col-sm-8 mt-3">
-                                                                <input type="text" class="form-control" id="obj"
-                                                                    aria-describedby="obj" placeholder="Objective" />
+                                                                <input type="text" class="form-control" name="objective"
+                                                                    id="objective" aria-describedby="obj"
+                                                                    placeholder="Objective" />
                                                             </div>
                                                         </div>
 
@@ -378,8 +522,8 @@ include 'header.php';
                                                                     class="form-label mt-4">Assessment/Diagnosis</label>
                                                             </div>
                                                             <div class="col-sm-8 mt-3">
-                                                                <textarea class="form-control" id="exampleTextarea"
-                                                                    rows="3"
+                                                                <textarea class="form-control" name="diagnosis"
+                                                                    id="diagnosis" rows="3"
                                                                     placeholder="Assessment/Diagnosis"></textarea>
                                                             </div>
                                                         </div>
@@ -390,8 +534,9 @@ include 'header.php';
                                                                     class="form-label mt-4">Prescription</label>
                                                             </div>
                                                             <div class="col-sm-8 mt-3">
-                                                                <textarea class="form-control" id="exampleTextarea"
-                                                                    rows="3" placeholder="Prescription"></textarea>
+                                                                <textarea class="form-control" id="prescription"
+                                                                    name="prescription" rows="3"
+                                                                    placeholder="Prescription"></textarea>
                                                             </div>
                                                         </div>
 
@@ -402,7 +547,8 @@ include 'header.php';
                                                             </div>
                                                             <div class="col-sm-8 mt-3">
                                                                 <input type="text" class="form-control" id="physician"
-                                                                    aria-describedby="obj" placeholder="Physician" />
+                                                                    name="physician" aria-describedby="obj"
+                                                                    placeholder="physician" />
                                                             </div>
                                                         </div>
 
@@ -413,7 +559,8 @@ include 'header.php';
                                                             </div>
                                                             <div class="col-sm-8 mt-3">
                                                                 <input type="text" class="form-control"
-                                                                    id="specialization" aria-describedby="obj"
+                                                                    id="specialization" name="specialization"
+                                                                    aria-describedby="obj"
                                                                     placeholder="specialization" />
                                                             </div>
                                                         </div>

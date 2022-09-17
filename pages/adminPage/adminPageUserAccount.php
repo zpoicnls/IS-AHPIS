@@ -60,10 +60,10 @@
 
                         <!-- Page Heading -->
                         <div class="row">
-                            <div class="col-lg-2">
+                            <div class="col-lg-3">
                                 <h1 class="h3 mb-2 text-gray-800">User Accounts</h1>
                             </div>
-                            <div class="col-lg-2">
+                            <div class="col-lg-4">
                                 <button type="button" class="btn btn-success" data-toggle="modal"
                                     data-target="#createuserModal">
                                     Create User Account
@@ -80,20 +80,19 @@
                                     <table class="table table-bordered  table-responsive content  table-hover "
                                         id="managetable" width="100%" cellspacing="0">
                                         <thead>
-                                            <tr>
-                                                <th>First Name</th>
-                                                <th>Middle Name</th>
-                                                <th>Last Name</th>
-                                                <th>E-mail</th>
-                                                <th>Gender</th>
-                                                <th>Username</th>
-                                                <th>Password</th>
-                                                <th>Usertype</th>
-                                                <th>Action</th>
+                                            <tr class="table-success"><b>
+                                                    <th>First Name</th>
+                                                    <th>Middle Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>E-mail</th>
+                                                    <th>Gender</th>
+                                                    <th>Username</th>
+                                                    <th>Password</th>
+                                                    <th>Usertype</th>
+                                                    <th>Action</th>
+                                                </b>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                        </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -152,10 +151,10 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="update_address">Gender:</label>
-                                                <br>
-                                                <select class="form-select" name="usersGender"
-                                                    aria-label="Default select example">
+                                                <label for="update_gender">Gender:</label>
+
+                                                <select class="form-control" name="usersGender"
+                                                    aria-label="Default select example" required>
                                                     <option selected>Select Gender</option>
                                                     <option value="Male">Male</option>
                                                     <option value="Female">Female</option>
@@ -181,7 +180,7 @@
                                             <div class="form-group">
                                                 <label for="update_address">Type of User:</label>
                                                 <br>
-                                                <select class="form-select" name="usersType"
+                                                <select class="form-control" name="usersType"
                                                     aria-label="Default select example">
                                                     <option selected>Select User Type</option>
                                                     <option value="Physician">Physician</option>
@@ -400,7 +399,8 @@
         <!-- <script src="../../vendor/datatables/jquery.dataTables.min.js"></script> -->
         <script src="../../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-        <!-- <script type="text/javascript" src="../../js/admin_JS/adminUser.js"></script> -->
+        <script type="text/javascript" src="../../js/admin_JS/adminUser.js"></script>
+
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js">
         </script>
 </body>

@@ -26,10 +26,10 @@
 
         <hr class="sidebar-divider">
 
-        <a class="nav-link" href="adminPagePatienViewRecord.php">
+        <!-- <a class="nav-link" href="adminPagePatienViewRecord.php">
             <i class="fas  "></i>
             <span>Patient Management
-            </span></a>
+            </span></a> -->
 
     </li>
 

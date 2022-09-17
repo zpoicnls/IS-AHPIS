@@ -51,8 +51,8 @@ include 'header.php';
                                                 <th>Address</th>
                                                 <th>Email</th>
                                                 <th>Contact #</th>
-                                                <th>Date of Birth</th>
-                                                <th>Record/Diagnosis</th>
+                                                <th>Birthday </th>
+                                                <th>View</th>
                                                 <th>Action</th>
                                             </b>
                                         </tr>
@@ -153,7 +153,8 @@ include 'header.php';
                             <label for="update_fname">First Name</label>
 
                             <input type="text" name="update_fname" id="update_fname" class="form-control"
-                                onKeyPress="if(this.value.length==30) return false;" min="0" required autofocus>
+                                onKeyPress="if(this.value.length==30) return false;" min="0" required autofocus
+                                placeholder="">
 
                         </div>
 
