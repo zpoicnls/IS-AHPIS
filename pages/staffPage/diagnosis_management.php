@@ -3,16 +3,16 @@ include 'db_connect.php';
 $Patient_ID = $_GET['var_patient'];
 
 
-$Patientquery = "select CONCAT(fname,_utf8 ' ', middle_name, _utf8 ' ', lname, email, address) AS name,bday,Patient_ID ,age,gender,bday,phone,email,address from patient_tbl where Patient_ID = '$Patient_ID'";
+$Patientquery = "select CONCAT(fname,_utf8 ' ', middle_name, _utf8 ' ', lname) AS name,bday,Patient_ID ,age,gender,bday,phone,email,address from patient_tbl where Patient_ID = '$Patient_ID'";
 $queryP = $conn->query($Patientquery);
 $row = $queryP->fetch_assoc();
 
-$diagquery = "SELECT  d.Diagnosis,d.year,d.Diagnosis_ID,pd.Patient_ID,d.weight,d.height,temperature,bp,HR,RR,
+$diagquery = "SELECT  d.diagnosis,d.date,d.Diagnosis_ID,pd.Patient_ID,d.weight,d.height,temperature,bp,hr,rr,
 chief_complaint,physician,vital_sign,subjective,objective,prescription,specialization,bloodtype,allergies FROM diagnosis_tbl d join tbl_patient_diagnosis pd on pd.Diagnosis_ID=d.Diagnosis_ID where pd.Patient_ID = '$Patient_ID'";
 $querydiag = $conn->query($diagquery);
 $row1 = $querydiag->fetch_assoc();
 
-$diagquery2 = "SELECT  max(d.year) as last_visit FROM diagnosis_tbl d join tbl_patient_diagnosis pd on pd.Diagnosis_ID=d.Diagnosis_ID where pd.Patient_ID = '$Patient_ID'";
+$diagquery2 = "SELECT  max(d.date) as last_visit FROM diagnosis_tbl d join tbl_patient_diagnosis pd on pd.Diagnosis_ID=d.Diagnosis_ID where pd.Patient_ID = '$Patient_ID'";
 $querydiag2 = $conn->query($diagquery2);
 $row2 = $querydiag2->fetch_assoc();
 
@@ -33,7 +33,7 @@ else {
   
     /*for paging*/
     /*fetching data*/
-   $sql="SELECT  d.Diagnosis,d.year,d.Diagnosis_ID,pd.Patient_ID,d.weight,d.height,temperature,bp,HR,RR,
+   $sql="SELECT  d.diagnosis,d.date,d.Diagnosis_ID,pd.Patient_ID,d.weight,d.height,temperature,bp,hr,rr,
    chief_complaint,physician,vital_sign,subjective,objective,prescription,specialization,bloodtype,allergies FROM diagnosis_tbl d join tbl_patient_diagnosis pd on pd.Diagnosis_ID=d.Diagnosis_ID where pd.Patient_ID = '$Patient_ID'";
    $result = $conn->query($sql);
   
@@ -60,7 +60,7 @@ else {
      $offset = ($currentpage * 5) - $perpage;
      
   
-      $query = "SELECT  d.Diagnosis,d.year,d.Diagnosis_ID,pd.Patient_ID,d.weight,d.height,temperature,bp,HR,RR,
+      $query = "SELECT  d.diagnosis,d.date,d.Diagnosis_ID,pd.Patient_ID,d.weight,d.height,temperature,bp,hr,rr,
       chief_complaint,physician,vital_sign,subjective,objective,prescription,specialization,bloodtype,allergies FROM diagnosis_tbl d join tbl_patient_diagnosis pd on pd.Diagnosis_ID=d.Diagnosis_ID where pd.Patient_ID = '$Patient_ID' limit $offset,$perpage";
       $search_result = filterTable($query);
     
@@ -76,7 +76,7 @@ else {
   
   
    /*for paging*/
-   $sql="SELECT  d.Diagnosis,d.year,d.Diagnosis_ID,pd.Patient_ID,d.weight,d.height,temperature,bp,HR,RR,
+   $sql="SELECT  d.diagnosis,d.date,d.Diagnosis_ID,pd.Patient_ID,d.weight,d.height,temperature,bp,hr,rr,
    chief_complaint,physician,vital_sign,subjective,objective,prescription,specialization,bloodtype,allergies FROM diagnosis_tbl d join tbl_patient_diagnosis pd on pd.Diagnosis_ID=d.Diagnosis_ID where pd.Patient_ID = '$Patient_ID'";
    $result = $conn->query($sql);
   
@@ -145,28 +145,28 @@ include 'header.php';
                         <div class="container py-4">
                             <div class="row">
                                 <div class="col-lg-3">
-                                    <div class="card shadow mb-4" style="height:220px">
+                                    <div class="card shadow mb-4" style="height:260px">
                                         <div class="card-body text-center">
                                             <img src="../../assets/img/undraw_profile.svg" alt="avatar"
                                                 class="rounded-circle img-fluid" style="width: 150px;" />
                                             <a href="#">
                                                 <h6 class="my-3"><i> Change Profile Image </i></h6>
                                             </a>
-                                            <h3>
-                                                <p class="mb-0">Juan Tamad</p>
-                                            </h3>
+                                            <h5>
+                                                <p class="mb-0"><?php echo $row['name'];?></p>
+                                            </h5>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-5">
-                                    <div class="card shadow mb-4 bg-gradient-success" style="height:220px">
+                                    <div class="card shadow mb-4 bg-gradient-success" style="height:260px">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-sm-3">
                                                     <p class="mb-0" style="color:white;">Age:
                                                     </p>
                                                 </div>
-                                                <div class="col-sm-3" style="color:white; font-weight:bold">
+                                                <div class="col-sm-9" style="color:white; font-weight:bold">
                                                     <?php echo $row['age'];?>
                                                 </div>
                                             </div>
@@ -194,7 +194,7 @@ include 'header.php';
                                                     <p class="mb-0" style="color:white;">Contact #:
                                                     </p>
                                                 </div>
-                                                <div class="col-sm-3" style="color:white; font-weight:bold">
+                                                <div class="col-sm-9" style="color:white; font-weight:bold">
                                                     <?php echo $row['phone'];?>
                                                 </div>
                                             </div>
@@ -212,7 +212,7 @@ include 'header.php';
                                                     <p class="mb-0" style="color:white;">Address:
                                                     </p>
                                                 </div>
-                                                <div class="col-sm-3" style="color:white; font-weight:bold">
+                                                <div class="col-sm-9" style="color:white; font-weight:bold">
                                                     <?php echo $row['address'];?>
                                                 </div>
                                             </div>
@@ -220,7 +220,7 @@ include 'header.php';
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
-                                    <div class="card shadow mb-4 bg-gradient-success" style="height:220px">
+                                    <div class="card shadow mb-4 bg-gradient-success" style="height:260px">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-sm-4">
@@ -306,8 +306,8 @@ include 'header.php';
                                                     <tr>
                                                         <td><?php echo $row['physician'];?></td>
                                                         <td><?php echo $row['specialization'];?></td>
-                                                        <td><?php echo $row['Diagnosis'];?></td>
-                                                        <td><?php echo $row['year'];?></td>
+                                                        <td><?php echo $row['diagnosis'];?></td>
+                                                        <td><?php echo $row['date'];?></td>
                                                         <td><?php echo $action; ?></a></td>
                                                     </tr>
                                                     <?php };  ?>
@@ -401,7 +401,7 @@ if ($currentpage != $lastpage) {
                                                             <div class="col-sm-8 mt-3">
                                                                 <input type="text" class="form-control" id="weight"
                                                                     name="weight" aria-describedby="weight"
-                                                                    placeholder="lbs" />
+                                                                    placeholder="kl" />
                                                             </div>
                                                         </div>
 
@@ -413,7 +413,7 @@ if ($currentpage != $lastpage) {
                                                             <div class="col-sm-8 mt-3">
                                                                 <input type="text" class="form-control" name="height"
                                                                     id="height" aria-describedby="height"
-                                                                    placeholder="ft" />
+                                                                    placeholder="cm" />
                                                             </div>
                                                         </div>
 

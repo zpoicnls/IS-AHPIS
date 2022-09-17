@@ -2,7 +2,7 @@ var managetable;
 
 $(document).ready(function() {
   managetable = $("#managetable").DataTable({
-    "ajax": "php_action/userdetails_view.php",
+    "ajax": "../../pages/adminPage/php_action/userdetails_view.php",
     "order": []
   });
 
