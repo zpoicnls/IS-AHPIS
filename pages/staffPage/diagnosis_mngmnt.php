@@ -358,6 +358,4 @@ if ($currentpage != $lastpage) {
     <script src="js/dataTables.bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/dataTables.bootstrap.min.css" />
     <script src="js/patient_JS/data.js"></script>
-</body>
-
-</html>
+    c

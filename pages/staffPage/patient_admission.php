@@ -86,23 +86,23 @@ include 'db_connect.php';
 
                                 <div class="form-group row">
                                     <div class="col-sm-3">
-                                        <input type="text" class="form-control" id="lastName"
-                                            aria-describedby="lastName" placeholder="Surname" />
+                                        <input type="text" class="form-control" id="lnamne" aria-describedby="lastName"
+                                            placeholder="Surname" />
                                     </div>
                                     <div class="col-sm-3">
-                                        <input type="text" class="form-control" id="firstName"
-                                            aria-describedby="firstName" placeholder="Given Name" />
+                                        <input type="text" class="form-control" id="fname" aria-describedby="firstName"
+                                            placeholder="Given Name" />
                                     </div>
                                     <div class="col-sm-3">
-                                        <input type="text" class="form-control" id="middleName"
-                                            aria-describedby="middleName" placeholder="Middle Name" />
+                                        <input type="text" class="form-control" id="mname" aria-describedby="middleName"
+                                            placeholder="Middle Name" />
                                     </div>
                                     <div class="col-sm-2">
                                         <input type="text" class="form-control" id="age" aria-describedby="age"
                                             placeholder="Age" />
                                     </div>
                                     <div class="col-sm-1">
-                                        <input type="text" class="form-control" id="sex" aria-describedby="sex"
+                                        <input type="text" class="form-control" id="gender" aria-describedby="sex"
                                             placeholder="M or F" />
                                     </div>
                                 </div>
@@ -118,7 +118,7 @@ include 'db_connect.php';
                                         <label for="age" class="form-label mt-4"><b>Contact #</b></label>
                                     </div>
                                     <div class="col-sm-2">
-                                        <label for="age" class="form-label mt-4"><b>Date of Birth</b></label>
+                                        <label for="bday" class="form-label mt-4"><b>Date of Birth</b></label>
                                     </div>
                                 </div>
 
@@ -132,11 +132,11 @@ include 'db_connect.php';
                                             placeholder="Email Address" />
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="text" class="form-control" id="contact" aria-describedby="contact"
+                                        <input type="text" class="form-control" id="phone" aria-describedby="contact"
                                             placeholder="Cellphone #" />
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="date" class="form-control" id="dob" aria-describedby="dob"
+                                        <input type="date" class="form-control" id="bday" aria-describedby="dob"
                                             placeholder="Date of Birth" />
                                     </div>
                                 </div>
