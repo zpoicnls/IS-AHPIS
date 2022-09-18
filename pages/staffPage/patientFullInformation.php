@@ -1,14 +1,14 @@
 <?php
 include 'db_connect.php';
 $Patient_ID = $_GET['var_patient'];
-
+$DiagnosisID = $_GET['var_diagnose'];
 
 $Patientquery = "select CONCAT(fname,_utf8 ' ', middle_name, _utf8 ' ', lname) AS name,bday,Patient_ID ,age,gender,bday,phone,email,address from patient_tbl where Patient_ID = '$Patient_ID'";
 $queryP = $conn->query($Patientquery);
 $row = $queryP->fetch_assoc();
 
 $diagquery = "SELECT  d.diagnosis,d.date,d.Diagnosis_ID,pd.Patient_ID,d.weight,d.height,temperature,bp,hr,rr,
-chief_complaint,physician,vital_sign,subjective,objective,prescription,specialization,bloodtype,allergies FROM diagnosis_tbl d join tbl_patient_diagnosis pd on pd.Diagnosis_ID=d.Diagnosis_ID where pd.Patient_ID = '$Patient_ID'";
+chief_complaint,physician,vital_sign,subjective,objective,prescription,specialization,bloodtype,allergies FROM diagnosis_tbl d join tbl_patient_diagnosis pd on pd.Diagnosis_ID=d.Diagnosis_ID where pd.Patient_ID = '$Patient_ID' and d.Diagnosis_ID=$DiagnosisID";
 $querydiag = $conn->query($diagquery);
 $row1 = $querydiag->fetch_assoc();
 

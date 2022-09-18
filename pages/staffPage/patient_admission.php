@@ -68,7 +68,7 @@ include 'db_connect.php';
                                             </div>
                                             <div class="col-sm-4 mt-3">
                                                 <input type="date" name="date" class="form-control" id="date"
-                                                    aria-describedby="date" />
+                                                    aria-describedby="date" required />
                                             </div>
                                         </div>
                                     </div>

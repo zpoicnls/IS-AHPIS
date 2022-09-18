@@ -12,4 +12,3 @@ $result = $query->fetch_assoc();
 $conn->close();
 
 echo json_encode($result);
-
