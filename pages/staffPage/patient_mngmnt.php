@@ -266,7 +266,7 @@ include 'header.php';
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <!-- <script src="js/demo/datatables-demo.js"></script> -->
+    <script src="js/demo/datatables-demo.js"></script>
     <!-- patient view Javascript -->
     <script type="text/javascript" src="js/patient_JS/patient_view.js"></script>
 </body>

@@ -301,7 +301,7 @@ include 'header.php';
                                                 <tbody>
                                                     <?php while($row = mysqli_fetch_array($search_result)){;
                                                     $action ='<div class="btn-group" role="group" >
-  <a type="button" class="btn fa fa-eye btn-sm" title="Edit" href ="patientFullInformation.php?var_patient='.$row1['Patient_ID'].'&var_diagnose='.$row1['Diagnosis_ID'].'"></a>
+  <a type="button" class="btn fa fa-eye btn-sm"  href ="patientFullInformation.php?var_patient='.$row1['Patient_ID'].'&var_diagnose='.$row['Diagnosis_ID'].'"></a>
      ';?>
                                                     <tr>
                                                         <td><?php echo $row['physician'];?></td>
